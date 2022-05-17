@@ -1,0 +1,28 @@
+/* stroke */
+div.stroke div div,
+div.stroke div div:after,
+div.stroke div div:before {
+  transition: all .5s;
+}
+div.stroke div div:hover {
+  color: red;
+}
+div.stroke div div {
+  position: relative;
+  transition: all 1s;
+}
+div.stroke div div:after{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: black;
+  height: 1px;
+}
+div.stroke div div:hover:after {
+  width: 100%;
+}
