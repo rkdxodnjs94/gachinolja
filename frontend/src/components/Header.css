@@ -1,17 +1,20 @@
 /* stroke */
-div.stroke div div,
-div.stroke div div:after,
-div.stroke div div:before {
+div.stroke ul li,
+div.stroke ul li:after,
+div.stroke ul li:before {
   transition: all .5s;
 }
-div.stroke div div:hover {
+div.stroke li .subsubmenu {
+  transition: all .5s;
+}
+div.stroke li .subsubmenu:hover {
   color: red;
 }
-div.stroke div div {
+div.stroke ul li {
   position: relative;
   transition: all 1s;
 }
-div.stroke div div:after{
+div.stroke ul li:after{
   position: absolute;
   bottom: 0;
   left: 0;
@@ -23,6 +26,18 @@ div.stroke div div:after{
   background: black;
   height: 1px;
 }
-div.stroke div div:hover:after {
+div.stroke ul li:hover:after {
   width: 100%;
 }
+/* hover sidemenu */
+li {
+  list-style: none;
+}
+.submenu {
+  display: none;
+}
+
+
+
+
+

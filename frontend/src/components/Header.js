@@ -3,6 +3,7 @@ import Login from './Login';
 import './Header.css';
 import { useDispatch, useSelector } from "react-redux";
 import { setLogin } from '../stores/LoginSlice';
+import $ from 'jquery';
 
 function Header(){
 
@@ -14,46 +15,56 @@ function Header(){
     <>
       { login === true ? <Login /> : null }
       <div className='container-fluid p-5 border stroke'>
-        <div className='row justify-content-md-center text-center'>
+        <ul className='row justify-content-md-center text-center menu'>
           <div role='button' className='col col-lg-2 border' onClick={()=>{
             navigate('/');
           }}>
             로고
           </div>
-          <div role='button' className='col-md-auto border ms-auto' onClick={()=>{
-            navigate('/reserve');
-          }}>
+          <li role='button' className='col-md-auto border ms-auto' onClick={()=>{
+            navigate('/reserve');}} onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>
             예약하기
-          </div>
-          <div role='button' className='col-md-auto border' onClick={()=>{
-            navigate('/party');
-          }}>
+          </li>
+          <li role='button' className='col-md-auto border' onClick={()=>{
+            navigate('/party'); }} onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>
             모집하기
-          </div>
-          <div role='button' className='col-md-auto border' onClick={()=>{
-            navigate('/boardgame');
-          }}>
+          </li>
+          <li role='button' className='col-md-auto border' onClick={()=>{
+            navigate('/boardgame');}} onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>
             보드게임
-          </div>
-          <div role='button' className='col-md-auto border' onClick={()=>{
-            navigate('/food');
-          }}>
+          </li>
+          <li role='button' className='col-md-auto border' onClick={()=>{
+            navigate('/food');}} onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>
             음식메뉴
-          </div>
-          <div role='button' className='col-md-auto border' onClick={()=>{
-            navigate('/inquiry');
-          }}>
-            문의하기
-          </div>
+          </li>
+          <li role='button' className='col-md-auto border' onClick={()=>{
+            navigate('/inquiry');}} onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>문의하기
+            <div className="submenu">
+              <div className="subsubmenu">공지사항</div>
+              <div className="subsubmenu">이벤트</div>
+              <div className="subsubmenu">1:1문의</div>
+            </div>
+          </li>
           <div role='button' className='col col-lg-2 border ms-auto' onClick={() => {
             dispatch(setLogin());
           }}>
             로그인
           </div>
-        </div>
+        </ul>
       </div>
     </>
   )
+}
+
+function Slide(){
+  $('.submenu').stop().slideDown(400);
+  $('.submenu').css('display','block');
+  $('.menu > li').hover(function(){
+    $('.submenu').stop().slideDown(400);
+  },
+  function(){
+    $('.submenu').stop().slideUp(400);
+  });
 }
 
 export default Header;
