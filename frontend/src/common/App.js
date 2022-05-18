@@ -8,6 +8,7 @@ import Party from '../pages/Party';
 import BoardGame from '../pages/BoardGame';
 import Food from '../pages/Food';
 import Inquiry from '../pages/Inquiry';
+import SignUp from '../pages/SignUp';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path='/boardgame' element={<BoardGame />} />
       <Route path='/food' element={<Food />} />
       <Route path='/inquiry' element={<Inquiry />} />
+      <Route path='/signup' element={<SignUp />} />
     </Routes>
   );
 }

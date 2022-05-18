@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 import { Form, Button, Alert, CloseButton } from 'react-bootstrap'; 
 import { useDispatch } from 'react-redux';
 import { setLogin } from '../stores/LoginSlice';
+import { useNavigate } from 'react-router-dom';
 
 function Login(){
   
   const [cancel, setCancel] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -44,20 +46,24 @@ function Login(){
           <div className='line'>
             또는
           </div>
-          <Alert variant='success'>
+          <Alert variant='success' className='text-center'>
             <Alert.Link href="#">네이버</Alert.Link>
           </Alert>
-          <Alert variant='warning'>
+          <Alert variant='warning' className='text-center'>
             <Alert.Link href="#">카카오톡</Alert.Link>
           </Alert>
-          <Alert variant='primary'>
+          <Alert variant='primary' className='text-center'>
             <Alert.Link href="#">페이스북</Alert.Link>
           </Alert>
-          <Alert variant='info'>
+          <Alert variant='info' className='text-center'>
             <Alert.Link href="#">구글</Alert.Link>
           </Alert>
-          <div className='container text-center'>
-            회원이 아니십니까? <a href='#'>회원가입</a>
+          <div className='container text-center' onClick={(e)=>{
+            e.stopPropagation();
+            dispatch(setLogin());
+            navigate('/signup');
+          }}>
+            회원이 아니십니까? 회원가입
           </div>
         </div>
       </div> 
