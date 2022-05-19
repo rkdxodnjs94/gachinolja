@@ -9,11 +9,12 @@ function Footer(){
         </div>
         <div className="col">
           <div className="col">
-            <div className="p-3 border bg-light">주소</div>
+            <div className="p-3 border bg-light">주소 서울시 중랑구 용마산로40길</div>
           </div>
           <div className="col">
             <div className="p-3 border bg-light">
-              사업자번호 대표자 이메일주소
+              사업자번호 123-45-67890 대표자 강태원
+              <br/>이메일주소 rkdxodnjs94@naver.com
             </div>
           </div>
           <div className="col">
