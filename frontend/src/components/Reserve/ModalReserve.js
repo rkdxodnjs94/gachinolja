@@ -4,22 +4,25 @@ import 'react-calendar/dist/Calendar.css';
 import moment from 'moment';
 import { useState } from 'react';
 import { Form, Container, Row, Col, Button } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+
 
 function ModalReserve(){
-
+  
   const [value, onChange] = useState(new Date());
+  const reserve = useSelector((state) => (state.reserve))
 
   return (
-    <div className="container border rounded modals p-5">
-      <h3>예약하기</h3>
+    <div className="border rounded modals p-5">
       <Container>
+      <h3>예약하기</h3>
         <Row>
           <Col>
             <Calendar onChange={onChange} value={value} defaultView='year' minDate={new Date()}/>
           </Col>
           <Col>
             <Form.Label>좌석</Form.Label>
-            <Form.Control type="text" placeholder='좌석을 입력해'
+            <Form.Control type="text" placeholder={`${reserve}번 자리`}
             aria-label="Disabled input example" disabled readOnly className='w-50'/>
             <br/>
             <Form.Label>인원</Form.Label>
