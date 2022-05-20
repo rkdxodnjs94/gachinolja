@@ -3,7 +3,8 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 // page경로
 import Main from '../pages/Main';
-import Reserve from '../pages/Reserve';
+import Reserve1 from '../pages/Reserve1';
+import Reserve2 from '../pages/Reserve2';
 import Party from '../pages/Party';
 import BoardGame from '../pages/BoardGame';
 import Food from '../pages/Food';
@@ -14,7 +15,8 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Main />} />
-      <Route path='/reserve' element={<Reserve />} />
+      <Route path='/reserve1' element={<Reserve1 />} />
+      <Route path='/reserve2' element={<Reserve2 />} />
       <Route path='/party' element={<Party />} />
       <Route path='/boardgame' element={<BoardGame />} />
       <Route path='/food' element={<Food />} />

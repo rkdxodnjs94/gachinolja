@@ -22,7 +22,7 @@ function Header(){
             로고
           </div>
           <li role='button' className='col-md-auto border ms-auto' onClick={()=>{
-            navigate('/reserve');}} onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>
+            navigate('/reserve1');}} onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>
             예약하기
           </li>
           <li role='button' className='col-md-auto border' onClick={()=>{
