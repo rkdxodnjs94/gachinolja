@@ -5,6 +5,7 @@ function Reserve1(){
   return (
     <>
       <Header />
+      test할게요
       <Footer />
     </>
   )
