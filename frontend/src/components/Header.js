@@ -13,7 +13,9 @@ function Header(){
 
   return (
     <>
-      { login === true ? <Login /> : null }
+      { login === true 
+      ? <Login /> 
+      : null }
       <div className='container-fluid p-5 border stroke'>
         <ul className='row justify-content-md-center text-center menu'>
           <div role='button' className='col col-lg-2 border' onClick={()=>{
@@ -45,10 +47,9 @@ function Header(){
               <div className="subsubmenu">1:1문의</div>
             </div>
           </li>
-          <div role='button' className='col col-lg-2 border ms-auto' onClick={() => {
+          <div className='col col-lg-2 border ms-auto' onClick={() => {
             dispatch(setLogin());
-          }}>
-            로그인
+          }}>로그인
           </div>
         </ul>
       </div>

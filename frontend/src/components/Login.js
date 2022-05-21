@@ -15,7 +15,7 @@ function Login(){
     <>
       {
         cancel === true ? null
-        : <div className='container-fluid position-fixed p-5 login'>
+        : <div className='container-fluid position-fixed p-5 login' id="example-fade-text">
         <div className='container mt-5 bg-white w-50 rounded bgwhite'>
           <CloseButton className='float-end' onClick={(e)=>{
             e.stopPropagation();
