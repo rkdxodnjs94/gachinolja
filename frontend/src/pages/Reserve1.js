@@ -1,17 +1,22 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { InputGroup, FormControl, Button, Card, Row, Col } from 'react-bootstrap';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Data from '../data/marketdata.json';
 // import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import roundToNearestMinutesWithOptions from "date-fns/esm/fp/roundToNearestMinutesWithOptions/index.js";
 
 function Reserve1(){
 
   const [plus, setPlus] = useState(3);
+  const [num,setNum] = useState(1);
   const [revData, setRevData] = useState(Data);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setPlus(num * 3);
+  }, [num])
   return (
     <>
       <Header />
@@ -42,7 +47,8 @@ function Reserve1(){
           </Col>
         ))}
       </Row>
-      <Button variant="danger" className="justify-content-center" style={{marginLeft : '47%'}}>더보기</Button>
+      <Button variant="danger" className="justify-content-center" style={{marginLeft : '47%'}}
+      onClick={()=>{ setNum(num+1) }}>더보기</Button>
       </div>
       <Footer />
     </>
