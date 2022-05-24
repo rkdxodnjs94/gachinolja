@@ -6,6 +6,7 @@ function Party(){
   return (
     <>
       <Header />
+      테스트용
       <Footer />
     </>
   )

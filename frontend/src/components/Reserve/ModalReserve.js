@@ -5,15 +5,18 @@ import moment from 'moment';
 import { useState } from 'react';
 import { Form, Container, Row, Col, Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 
 function ModalReserve(){
   
   const [value, onChange] = useState(new Date());
-  const reserve = useSelector((state) => (state.reserve))
+  const revdata = useSelector((state) => { return state.revdata })
+  const reserve = useSelector((state) => { return state.reserve })
+  const { id } = useParams();
 
   return (
-    <div className="border rounded modals p-5">
+    <div className="border rounded modals p-4">
       <Container>
       <h3>예약하기</h3>
         <Row>
@@ -21,6 +24,10 @@ function ModalReserve(){
             <Calendar onChange={onChange} value={value} defaultView='year' minDate={new Date()}/>
           </Col>
           <Col>
+            <Form.Label>예약장소</Form.Label>
+            <Form.Control type="text" placeholder={revdata[id-1].name}
+            aria-label="Disabled input example" disabled readOnly className='w-75'/>
+            <br/>
             <Form.Label>좌석</Form.Label>
             <Form.Control type="text" placeholder={`${reserve}번 자리`}
             aria-label="Disabled input example" disabled readOnly className='w-50'/>
@@ -37,9 +44,25 @@ function ModalReserve(){
             </Form.Select>
             <br/>
             <Form.Label>예약할 날짜</Form.Label>
-            <Form.Control type="text" placeholder={moment(value).format('YYYY년 MM월 DD일')}
-            aria-label="Disabled input example" disabled readOnly className='w-50'/>
-            <br/>
+            <Row>
+              <Form.Control type="text" placeholder={moment(value).format('YYYY년 MM월 DD일')}
+              aria-label="Disabled input example" disabled readOnly className='w-50'/>
+              <Form.Select aria-label="Default select example" className='w-50'>
+              <option value="10">오전 10시</option>
+              <option value="11">오전 11시</option>
+              <option value="12">오전 12시</option>
+              <option value="1">오후 1시</option>
+              <option value="2">오후 2시</option>
+              <option value="3">오후 3시</option>
+              <option value="4">오후 4시</option>
+              <option value="4">오후 5시</option>
+              <option value="4">오후 6시</option>
+              <option value="4">오후 7시</option>
+              <option value="4">오후 8시</option>
+              <option value="4">오후 9시</option>
+              <option value="4">오후 10시</option>
+              </Form.Select>
+            </Row>
             <Button variant="danger">예약하기</Button>
           </Col>
         </Row>
