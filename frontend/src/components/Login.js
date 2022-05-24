@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { setLogin } from '../stores/LoginSlice';
 import { useNavigate } from 'react-router-dom';
 
-function Login(){
+function Login(props){
   
   const [cancel, setCancel] = useState(false);
   const dispatch = useDispatch();
@@ -14,8 +14,9 @@ function Login(){
   return (
     <>
       {
-        cancel === true ? null
-        : <div className='container-fluid position-fixed p-5 login' id="example-fade-text">
+        cancel === true 
+        ? null
+        : <div className={'container-fluid position-fixed p-5 login start '+props.fade} id="example-fade-text">
         <div className='container mt-5 bg-white w-50 rounded bgwhite'>
           <CloseButton className='float-end' onClick={(e)=>{
             e.stopPropagation();
@@ -58,7 +59,7 @@ function Login(){
           <Alert variant='info' className='text-center'>
             <Alert.Link href="#">구글</Alert.Link>
           </Alert>
-          <div className='container text-center' onClick={(e)=>{
+          <div role='button' className='container text-center' onClick={(e)=>{
             e.stopPropagation();
             dispatch(setLogin());
             navigate('/signup');

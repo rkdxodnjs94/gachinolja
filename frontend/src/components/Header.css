@@ -36,6 +36,14 @@ li {
 .submenu {
   display: none;
 }
+/* fade */
+.start {
+  opacity : 0;
+}
+.end {
+  opacity: 1;
+  transition: all .3s;
+}
 
 
 

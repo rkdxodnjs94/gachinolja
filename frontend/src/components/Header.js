@@ -3,18 +3,27 @@ import Login from './Login';
 import './Header.css';
 import { useDispatch, useSelector } from "react-redux";
 import { setLogin } from '../stores/LoginSlice';
+import { setFade } from '../stores/FadeSlice';
 import $ from 'jquery';
+import { useEffect } from "react";
 
 function Header(){
 
   const navigate = useNavigate();
   const login = useSelector(( state ) => { return state.login } )
   const dispatch = useDispatch();
+  const fade = useSelector(( state ) => { return state.fade })
+  useEffect(()=>{
+    setTimeout(()=>{ dispatch(setFade('end clearstart')) }, 100)
+    return ()=>{
+      dispatch(setFade(''));
+    }
+  },[login])
 
   return (
     <>
       { login === true 
-      ? <Login /> 
+      ? <Login fade={fade}/>
       : null }
       <div className='container-fluid p-5 border stroke'>
         <ul className='row justify-content-md-center text-center menu'>
@@ -42,12 +51,18 @@ function Header(){
           <li role='button' className='col-md-auto border' onClick={()=>{
             navigate('/inquiry');}} onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>문의하기
             <div className="submenu">
-              <div className="subsubmenu">공지사항</div>
-              <div className="subsubmenu">이벤트</div>
-              <div className="subsubmenu">1:1문의</div>
+              <div role='button' className="subsubmenu" onClick={(e)=>{
+                e.stopPropagation(); navigate('/notice');}}>
+                공지사항</div>
+              <div role='button' className="subsubmenu" onClick={(e)=>{
+                e.stopPropagation(); navigate('/event');}}>
+                이벤트</div>
+              <div role='button' className="subsubmenu" onClick={(e)=>{
+                e.stopPropagation(); navigate('/inquiry');}}>
+                1:1문의</div>
             </div>
           </li>
-          <div className='col col-lg-2 border ms-auto' onClick={() => {
+          <div role='button' className='col col-lg-2 border ms-auto' onClick={() => {
             dispatch(setLogin());
           }}>로그인
           </div>

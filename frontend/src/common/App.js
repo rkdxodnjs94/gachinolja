@@ -8,7 +8,9 @@ import Reserve2 from '../pages/Reserve2';
 import Party from '../pages/Party';
 import BoardGame from '../pages/BoardGame';
 import Food from '../pages/Food';
-import Inquiry from '../pages/Inquiry';
+import Inquiry from '../pages/Inquiry/Inquiry';
+import EventList from '../pages/Inquiry/EventList';
+import NoticeList from '../pages/Inquiry/NoticeList';
 import SignUp from '../pages/SignUp';
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
       <Route path='/boardgame' element={<BoardGame />} />
       <Route path='/food' element={<Food />} />
       <Route path='/inquiry' element={<Inquiry />} />
+      <Route path='/event' element={<EventList />} />
+      <Route path='/notice' element={<NoticeList />} />
       <Route path='/signup' element={<SignUp />} />
     </Routes>
   );

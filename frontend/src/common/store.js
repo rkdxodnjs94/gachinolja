@@ -5,11 +5,14 @@ import login from '../stores/LoginSlice';
 import reserve from '../stores/RevSlice';
 // 예약데이터 state용
 import revdata from '../stores/RevDataSlice';
+// Fade state용
+import fade from '../stores/FadeSlice';
 
 export default configureStore({
   reducer : {
     login : login.reducer,
     reserve : reserve.reducer,
     revdata : revdata.reducer,
+    fade : fade.reducer,
   }
 })

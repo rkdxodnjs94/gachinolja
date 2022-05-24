@@ -6,8 +6,9 @@ function ImgSlide(){
       <Carousel.Item interval={3000}>
         <img
         className="d-block w-100"
-        src="/images/carousel/car1.png"
+        src="/images/card/photo1.jpeg"
         alt="First slide"
+        style={{maxWidth: '1200px', maxHeight: '555px'}}
         />
         <Carousel.Caption>
         <h3>First slide label</h3>
@@ -19,6 +20,7 @@ function ImgSlide(){
         className="d-block w-100"
         src="/images/carousel/car2.png"
         alt="Second slide"
+        style={{maxWidth: '1200px', maxHeight: '555px'}}
         />
         <Carousel.Caption>
         <h3>Second slide label</h3>
@@ -30,6 +32,7 @@ function ImgSlide(){
         className="d-block w-100"
         src="/images/carousel/car3.png"
         alt="Third slide"
+        style={{maxWidth: '1200px', maxHeight: '555px'}}
         />
         <Carousel.Caption>
         <h3>Third slide label</h3>
