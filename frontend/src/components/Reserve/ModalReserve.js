@@ -44,10 +44,10 @@ function ModalReserve(){
             </Form.Select>
             <br/>
             <Form.Label>예약할 날짜</Form.Label>
-            <Row>
+            <Row style={{marginLeft : '1px'}}>
               <Form.Control type="text" placeholder={moment(value).format('YYYY년 MM월 DD일')}
-              aria-label="Disabled input example" disabled readOnly className='w-50'/>
-              <Form.Select aria-label="Default select example" className='w-50'>
+              aria-label="Disabled input example" disabled readOnly style={{width:'42%'}}/>
+              <Form.Select aria-label="Default select example" style={{width:'32%'}}>
               <option value="10">오전 10시</option>
               <option value="11">오전 11시</option>
               <option value="12">오후 12시</option>

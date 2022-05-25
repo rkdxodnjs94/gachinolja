@@ -20,10 +20,10 @@ function EventList(){
                   </Col>
                   <Col>
                     <Card.Body>
-                      <Card.Title>Card Title</Card.Title>
+                      <Card.Title>이벤트 제목</Card.Title>
                       <Card.Text>
-                        Some quick example text to build on the card title and make up the bulk of
-                        the card's content.
+                        2022-05-23 ~ 2022-12-31<br/>
+                        이벤트 내용은 이렇고, 어쩌구....
                       </Card.Text>
                     </Card.Body>
                   </Col>
