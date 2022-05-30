@@ -32,7 +32,7 @@ function Reserve1(){
         <Row xs={1} md={3} className="g-4 p-5">
         {revdata.slice(offset, offset + limit).map(( { id, name, address } ) => (
           <Col key={id}>
-            <Card onClick={()=>{ navigate('/reserve2/' + revdata[id-1].id)}}>
+            <Card onClick={()=>{ navigate('/reserve2/' + revdata[id-1].id)}} style={{cursor : 'pointer'}}>
             <Card.Img variant="top" src="holder.js/100px160" />
             <Card.Body>
               <Card.Title className='cardname'>{ revdata[id-1].name }</Card.Title>

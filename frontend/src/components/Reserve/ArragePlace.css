@@ -22,6 +22,12 @@
   padding-top: 100px;
   font-size: 20px;
 }
+/* 예약완료시 색 변경 */
+.yellow {
+  background-color: yellowgreen;
+  cursor: not-allowed;
+}
+/* 자리 배치도 */
 .place1 {
   position: relative;
   left: 24%;

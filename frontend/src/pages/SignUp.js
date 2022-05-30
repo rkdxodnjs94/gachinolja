@@ -4,8 +4,10 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Form, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp(){
+  const navigate = useNavigate();
   // 아이디, 비밀번호, 닉네임, 성별, 전화번호
   const [userId, setUserId] = useState('');
   const [userPw, setUserPw] = useState('');
@@ -59,7 +61,7 @@ function SignUp(){
     const pwConfirmCurrent = e.target.value;
     setUserPwCheck(pwConfirmCurrent);
     if (userPw === pwConfirmCurrent){
-      setPwCheckError('비밀번호를 똑같이 입력했어요 XD');
+      setPwCheckError('비밀번호가 일치합니다! XD');
       setPwConfirmCheck(true);
     } else {
       setPwCheckError('비밀번호가 일치하지 않아요 ㅠㅠ');
@@ -108,6 +110,8 @@ function SignUp(){
         gender : gender,
         tel : phone
       });
+      alert('가입이 완료되었습니다 X)');
+      navigate('/');
       console.log(response);
     } catch (error) {
       console.log(error);

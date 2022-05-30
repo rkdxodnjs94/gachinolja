@@ -1,20 +1,20 @@
 /* stroke */
-div.stroke ul li,
-div.stroke ul li:after,
-div.stroke ul li:before {
+div.stroke .menu .menu1,
+div.stroke .menu .menu1:after,
+div.stroke .menu .menu1:before {
   transition: all .5s;
 }
-div.stroke li .subsubmenu {
+div.stroke .menu1 .subsubmenu {
   transition: all .5s;
 }
-div.stroke li .subsubmenu:hover {
+div.stroke .menu1 .subsubmenu:hover {
   color: red;
 }
-div.stroke ul li {
+div.stroke .menu .menu1 {
   position: relative;
   transition: all 1s;
 }
-div.stroke ul li:after{
+div.stroke .menu .menu1:after{
   position: absolute;
   bottom: 0;
   left: 0;
@@ -26,11 +26,11 @@ div.stroke ul li:after{
   background: black;
   height: 1px;
 }
-div.stroke ul li:hover:after {
+div.stroke .menu .menu1:hover:after {
   width: 100%;
 }
 /* hover sidemenu */
-li {
+.menu1 {
   list-style: none;
 }
 .submenu {

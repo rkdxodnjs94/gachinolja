@@ -1,15 +1,53 @@
 import './Login.css';
 import React, { useState } from 'react';
 import { Form, Button, Alert, CloseButton } from 'react-bootstrap'; 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setLogin } from '../stores/LoginSlice';
+import { loginID, loginPW, loginNICK } from '../stores/IsLoginSlice';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Login(props){
   
   const [cancel, setCancel] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const islogin = useSelector((state) => { return state.islogin});
+  const onChangeId = (e) => {
+    if ( e.target.name === 'userid'){
+      dispatch(loginID((e.target.value)));
+    }
+  }
+  const onChangePw = (e) => {
+    if ( e.target.name === 'userpw'){
+      dispatch(loginPW((e.target.value)));
+    }
+  }
+  const onLock = (e) => {
+    //입력 값 정합성 체크 후 login API 요청
+    if (islogin.userid === "" || islogin.userpw === "") {
+      window.alert("아이디 또는 비밀번호를 입력해주세요.");
+      return;
+    }
+    e.stopPropagation();
+    try {
+      const response = axios.post('/api/user/login',{
+        userid : islogin.userid,
+        userpw : islogin.userpw
+      });
+      response.then((data) => { dispatch(loginNICK(data.data.nickname))});
+      console.log(response.then((data) => { console.log(data) }));
+      alert('로그인 성공!');
+      navigate('/');
+      setCancel(true);
+      dispatch(setLogin(false));
+    } catch (error) {
+      window.alert('로그인에 실패했습니다');
+      dispatch(loginID(''));
+      dispatch(loginPW(''));
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -20,30 +58,32 @@ function Login(props){
         <div className='container mt-5 bg-white w-50 rounded bgwhite'>
           <CloseButton className='float-end' onClick={(e)=>{
             e.stopPropagation();
-            setCancel(!cancel);
-            dispatch(setLogin());
+            setCancel(false);
+            dispatch(setLogin(false));
           }}/>
           <Form className='p-5'>
             <Form.Group className="mb-3 px-5" controlId="formBasicEmail">
-              <Form.Label>이메일</Form.Label>
-              <Form.Control className='w-75' type="email" placeholder="example@abc.co.kr" />
+              <Form.Label>아이디</Form.Label>
+              <Form.Control className='w-75' type="email" name='userid' placeholder="example@abc.co.kr"
+              onChange={onChangeId}/>
               <Form.Text className="text-muted">
                 이메일을 정확하게 기재해주세요!
               </Form.Text>
             </Form.Group>
             <Form.Group className="mb-3 px-5" controlId="formBasicPassword">
               <Form.Label>비밀번호</Form.Label>
-              <Form.Control className='w-75' type="password" placeholder="Password" />
+              <Form.Control className='w-75' type="password" name='userpw' placeholder="Password" 
+              onChange={onChangePw}/>
             </Form.Group>
-            <Form.Group className="mb-3 px-5" controlId="formBasicCheckbox">
+            <Form.Group className="px-5" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="날 기억해줘!" />
             </Form.Group>
-            <div className='float-end'>
-              <Button className='px-5' variant="primary" type="submit">
-                로그인
-              </Button>
-            </div>
           </Form>
+          <div className='container mb-3' style={{marginLeft : '49%'}}>
+            <Button className='px-5' variant="primary" type="submit" onClick={onLock}>
+              로그인
+            </Button>
+          </div>
           <div className='line'>
             또는
           </div>
@@ -61,7 +101,7 @@ function Login(props){
           </Alert>
           <div role='button' className='container text-center' onClick={(e)=>{
             e.stopPropagation();
-            dispatch(setLogin());
+            dispatch(setLogin(false));
             navigate('/signup');
           }}>
             회원이 아니십니까? 회원가입

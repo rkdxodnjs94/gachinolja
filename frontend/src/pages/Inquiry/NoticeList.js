@@ -9,7 +9,7 @@ function NoticeList(){
       <Header />
       <Container>
       <h1 className='p-5'>공지사항</h1>
-        <div>
+        <div className='px-5'>
           <Table responsive="sm">
           <thead>
             <tr className='text-center'>

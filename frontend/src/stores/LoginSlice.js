@@ -4,8 +4,8 @@ const Login = createSlice({
   name : 'Login',
   initialState : false,
   reducers : {
-    setLogin(state){
-      return !state
+    setLogin(state,action){
+      return action.payload;
     }
   }
 })
