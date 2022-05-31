@@ -22,10 +22,14 @@ function RevModal(props) {
         publisher : islogin.nickname,
         publisherID : islogin.userid,
         place : revdata[id-1].name,
-        arrage : reserve[0],
-        people : props.person,
-        date : props.datevalue,
-        time : props.time
+        arrage : [
+          {
+            arrage : reserve[0],
+            people : props.person,
+            date : props.datevalue,
+            time : props.time
+          }
+        ] 
       });
       alert('예약이 완료되었습니다! :)');
       response.then((data) => {dispatch( setSaveReserve(data.data.arrage) )});

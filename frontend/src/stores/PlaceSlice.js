@@ -1,11 +1,11 @@
-// 자리 데이터를 저장하는 state입니다.
+// 가게이름 데이터를 저장하는 state입니다.
 import { createSlice } from "@reduxjs/toolkit";
 
-const SaveReserve = createSlice({
-  name : 'savereserve',
+const PlaceSlice = createSlice({
+  name : 'place',
   initialState : [],
   reducers : {
-    setSaveReserve(state, action){
+    setPlace(state, action){
       const setstate = [...state, action.payload];
       return setstate.filter(function(item, idx){
         return setstate.indexOf(item) === idx;
@@ -14,6 +14,6 @@ const SaveReserve = createSlice({
   }
 });
 
-export const { setSaveReserve } = SaveReserve.actions;
+export const { setPlace } = PlaceSlice.actions;
 
-export default SaveReserve;
+export default PlaceSlice;
