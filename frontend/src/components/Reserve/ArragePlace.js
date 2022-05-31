@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setReserve } from '../../stores/RevSlice';
 import { setSaveReserve } from '../../stores/SaveRevSlice';
-import { setPlace } from '../../stores/PlaceSlice';
+// import { setPlace } from '../../stores/PlaceSlice';
 import './ArragePlace.css';
 import axios from 'axios';
 import { Suspense, useEffect } from 'react';
@@ -12,34 +12,35 @@ function ArragePlace(){
   const dispatch = useDispatch();
   const revdata = useSelector((state) => { return state.revdata });
   const savereserve = useSelector((state) => { return state.savereserve });
-  const place = useSelector((state) => { return state.place });
+  // const place = useSelector((state) => { return state.place });
   const { id } = useParams();
 
   useEffect(() => {
     async function axiosdata(){
       try {
         const response = await axios.get('/api/reserve');
-        for (var i=0; i<2600; i++) {
-          dispatch(setPlace(response.data[i].place));
+        for (var i=0; i < response.data.length; i++) {
+          dispatch(setSaveReserve(response.data[i].place));
           dispatch(setSaveReserve(response.data[i].arrage[0].arrage));
-          console.log(response);
-        }
+        };
+        console.log(response);
       } catch (error) {
         console.log(error);
       }
     }
-    axiosdata();
+  axiosdata();
   },[dispatch])
 
   return (
     <Suspense fallback={<h1>로딩중입니당</h1>}>
-      {console.log(place.find((e) => e === revdata[id-1].name) === revdata[id-1].name)}
-      {console.log()}
+      {console.log(savereserve.some((value) => console.log(value)))}
+      {console.log(revdata[id-1].name)}
+
       <div className="container border rounded"
         style={{height:'700px', minWidth: '800px'}}>
         <div className='place1 row'>
           { 
-            (place.find((e) => e === revdata[id-1].name) === revdata[id-1].name)
+            (savereserve.find((e) => e === revdata[id-1].name) === revdata[id-1].name)
             ? (savereserve.find((element) => (element === 1) ))
               ? <div role='button' className="minisize border one yellow">1번</div>
               : <div role='button' className="minisize border one" onClick={()=>{
@@ -49,7 +50,7 @@ function ArragePlace(){
                 dispatch(setReserve(1));
               }}>1번</div>
           }
-          {
+          {/* {
             (place.find((e) => e === revdata[id-1].name) === revdata[id-1].name)
             ? (savereserve.find((element) => (element === 2) ))
               ? <div role='button' className="minisize border two yellow">2번</div>
@@ -226,7 +227,7 @@ function ArragePlace(){
             : <div role='button' className="midsize border thirteen" onClick={()=>{
                 dispatch(setReserve(13));
               }}>13번</div>
-          }
+          } */}
         </div>
         <div className="door border py-1">출입구</div>
         <div className="counter border">카운터</div>
