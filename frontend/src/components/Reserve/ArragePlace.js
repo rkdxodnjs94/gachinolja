@@ -22,8 +22,8 @@ function ArragePlace(){
         for (var i=0; i<2600; i++) {
           dispatch(setPlace(response.data[i].place));
           dispatch(setSaveReserve(response.data[i].arrage[0].arrage));
+          console.log(response);
         }
-        
       } catch (error) {
         console.log(error);
       }
@@ -33,11 +33,13 @@ function ArragePlace(){
 
   return (
     <Suspense fallback={<h1>로딩중입니당</h1>}>
+      {console.log(place.find((e) => e === revdata[id-1].name) === revdata[id-1].name)}
+      {console.log()}
       <div className="container border rounded"
         style={{height:'700px', minWidth: '800px'}}>
         <div className='place1 row'>
-          {
-            (revdata[id-1].name === String(place))
+          { 
+            (place.find((e) => e === revdata[id-1].name) === revdata[id-1].name)
             ? (savereserve.find((element) => (element === 1) ))
               ? <div role='button' className="minisize border one yellow">1번</div>
               : <div role='button' className="minisize border one" onClick={()=>{
@@ -48,7 +50,7 @@ function ArragePlace(){
               }}>1번</div>
           }
           {
-            (revdata[id-1].name === String(place))
+            (place.find((e) => e === revdata[id-1].name) === revdata[id-1].name)
             ? (savereserve.find((element) => (element === 2) ))
               ? <div role='button' className="minisize border two yellow">2번</div>
               : <div role='button' className="minisize border two" onClick={()=>{
@@ -65,7 +67,7 @@ function ArragePlace(){
               : <div role='button' className="minisize border three" onClick={()=>{
                   dispatch(setReserve(3));
                 }}>3번</div>
-            : <div role='button' className="minisize border two" onClick={()=>{
+            : <div role='button' className="minisize border three" onClick={()=>{
                 dispatch(setReserve(3));
               }}>3번</div>
           }

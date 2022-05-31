@@ -20,11 +20,11 @@ function RevModal(props) {
     try {
       const response = axios.post('/api/reserve',{
         publisher : islogin.nickname,
-        publisherID : islogin.userid,
         place : revdata[id-1].name,
         arrage : [
           {
             arrage : reserve[0],
+            publisherID : islogin.userid,
             people : props.person,
             date : props.datevalue,
             time : props.time
