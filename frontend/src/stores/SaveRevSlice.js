@@ -8,12 +8,10 @@ const SaveReserve = createSlice({
   initialState : [],
   reducers : {
     setSavePlace(state, action){
-      const arr = new Array(state.length).fill(state);
-      arr.push(action.payload);
+      state.push(action.payload);
     },
     setSaveArg(state, action){
-      const arr = new Array(state.length).fill(state);
-      arr.push(action.payload);
+      state.push(action.payload);
     }
   }
 });
