@@ -16,12 +16,15 @@ function ArragePlace(){
   useEffect(() => {
     async function axiosdata(){
       try {
-        const response = await axios.get('/api/reserve');
-        for (let i=0; i<response.data.length; i++){
-          dispatch(setSavePlace(response?.data[i]?.place));
-          dispatch(setSaveArg(response?.data[i]?.arrage));
-        }
-        console.log(response.data[0].place, response.data[0].arrage);
+        const response = await axios.get('/api/reserve/place',{
+          params : {place : revdata[id-1].name}
+        });
+        console.log(response);
+        // for (let i=0; i<response.data.length; i++){
+        //   dispatch(setSavePlace(response.data[i].place));
+        //   dispatch(setSaveArg(response.data[i].arrage));
+        // }
+        // console.log(response.data[0].place, response.data[0].arrage);
       } catch (error) {
         console.log(error);
       }
