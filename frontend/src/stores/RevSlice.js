@@ -2,12 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const Reserve = createSlice({
   name : 'reserve',
-  initialState : [],
+  initialState : '1',
   reducers : {
     setReserve(state, action){
-      state.splice(0, state.length);
-      state.push((action.payload));
-      return state[action.payload];
+      '';
+      return Number(action.payload);
     }
   }
 });

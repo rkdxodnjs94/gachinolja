@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux";
-import { setSaveReserve } from '../stores/SaveRevSlice';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function RevModal(props) {
-  const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const revdata = useSelector((state) => { return state.revdata })
   const reserve = useSelector((state) => { return state.reserve })
@@ -20,21 +18,14 @@ function RevModal(props) {
     try {
       const response = axios.post('/api/reserve',{
         publisher : islogin.nickname,
+        publisherID : islogin.userid,
         place : revdata[id-1].name,
-        arrage : [
-          {
-            arrage : reserve[0],
-            publisherID : islogin.userid,
-            people : props.person,
-            date : props.datevalue,
-            time : props.time
-          }
-        ] 
+        arrage : reserve,
+        people : props.person,
+        date : props.datevalue,
+        time : props.time
       });
-      alert('예약이 완료되었습니다! :)');
-      response.then((data) => {dispatch( setSaveReserve(data.data.arrage) )});
-      console.log(savereserve);
-      console.log(response);
+      alert('예약이 완료되었습니다! :)'); 
       handleShow();
     } catch (error) {
       alert('예약이 실패됐습니다 ㅠㅠ');
