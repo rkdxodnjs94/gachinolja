@@ -15,6 +15,7 @@ function ModalReserve(){
   const revdata = useSelector((state) => { return state.revdata })
   const reserve = useSelector((state) => { return state.reserve })
   const people = new Array(7).fill(2);
+  const BigPeople = new Array(4).fill(5);
   const { id } = useParams();
   const [person, setPerson] = useState('2');
   const [time, setTime] = useState('오전 10시');
@@ -44,9 +45,15 @@ function ModalReserve(){
             <br/>
             <Form.Label>인원</Form.Label>
             <Form.Select aria-label="revpeople" className='w-50' required onChange={handleSelect} value={person}>
-            {people.map((a,i) => {
-              return <option key={i} value={i+2}>{i+2}</option>
-            })}
+            {
+              (reserve >= 9 && reserve <= 13)
+              ? BigPeople.map((a,i) => {
+                return <option key={i} value={i+5}>{i+5}</option>
+              })
+              : people.map((a,i) => {
+                return <option key={i} value={i+2}>{i+2}</option>
+              })
+            }
             </Form.Select>
             <br/>
             <Form.Label>예약할 날짜</Form.Label>

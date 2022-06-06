@@ -1,21 +1,20 @@
 // 자리 데이터를 저장하는 state입니다.
 // 초기 state : []
-// 수정 state : [ ['강남점',1,2,3..],['홍대점',1,2,3,...], ]
+// 수정 state : [1,2,...]
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = [];
 const SaveReserve = createSlice({
   name : 'savereserve',
-  initialState : [],
+  initialState,
   reducers : {
-    setSavePlace(state, action){
-      state.push(action.payload);
-    },
     setSaveArg(state, action){
       state.push(action.payload);
-    }
+    },
+    clear : () => initialState
   }
 });
 
-export const { setSavePlace, setSaveArg } = SaveReserve.actions;
+export const { clear, setSaveArg } = SaveReserve.actions;
 
 export default SaveReserve;
