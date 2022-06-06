@@ -8,21 +8,24 @@ function PtModal(props) {
   const islogin = useSelector((state) => { return state.islogin })
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-//   const partyDB = (e) => {
-//     e.stopPropagation();
-//     try {
-//       const response = axios.post('/api/party',{
-        
-//         publisher : islogin.nickname
-//       });
-//       alert('모집되었습니다! :)');
-//       console.log(response);
-//       handleShow();
-//     } catch (error) {
-//       alert('모집이 안됐습니다 ㅠㅠ');
-//       console.log(error);
-//     }
-//   }
+  const partyDB = (e) => {
+    e.stopPropagation();
+    try {
+      const response = axios.post('/api/party',{
+        title : props.title,
+        content : props.content,
+        publisher : islogin.nickname,
+        publisherID : islogin.userid,
+        people : props.person
+      });
+      alert('모집되었습니다! :)');
+      console.log(response);
+      handleClose();
+    } catch (error) {
+      alert('모집이 안됐습니다 ㅠㅠ');
+      console.log(error);
+    }
+  }
 
   return (
     <>
@@ -37,7 +40,7 @@ function PtModal(props) {
         </Modal.Header>
         <Modal.Body>모집하시겠습니까?</Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={()=>{}}>
+          <Button variant="primary" onClick={partyDB}>
             예
           </Button>
           <Button variant="secondary" onClick={handleClose}>

@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { Container, Table, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 function Party(){
+
   const navigate = useNavigate();
+  const islogin = useSelector(( state ) => { return state.islogin });
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function axiosdata(){
+      try {
+        const response = await axios.get('/api/party');
+        for (let i=0; i<response.data.length; i++) {
+          setData(response.data);
+        }
+        console.log(response.data[0]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  axiosdata();
+  },[setData]);
+
   return (
     <>
+      {console.log(data)}
       <Header />
       <Container>
       <h1 className='p-5'>모집하기</h1>
@@ -23,17 +45,23 @@ function Party(){
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className='text-center'>1</td>
-              <td className='text-center'>건대근처에서 같이 하실 분~</td>
-              <td className='text-center'>2022-05-29</td>
-              <td className='text-center'>test</td>
-              <td className='text-center'>1/4</td>
-            </tr>
+            {
+              (Object.values(data)).map((data)=>{
+                return <tr key={data._id}>
+                  <td className='text-center'>{data.no}</td>
+                  <td className='text-center'>{data.title}</td>
+                  <td className='text-center'>{data.date}</td>
+                  <td className='text-center'>{data.publisher}</td>
+                  <td className='text-center'>{data.people}</td>
+                </tr>
+              })
+            }
           </tbody>
         </Table>
         <div className='mb-4 mt-4 me-4 d-flex justify-content-end'>
-          <Button onClick={()=>{navigate('/party/recruit')}}>모집하기</Button>
+          <Button onClick={()=>{islogin.userid 
+          ? navigate('/party/recruit')
+          : alert('로그인 하셔야 합니다')}}>모집하기</Button>
         </div>
       </div>
     </Container>

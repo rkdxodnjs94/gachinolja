@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -8,7 +8,6 @@ function RevModal(props) {
   const [show, setShow] = useState(false);
   const revdata = useSelector((state) => { return state.revdata })
   const reserve = useSelector((state) => { return state.reserve })
-  const savereserve = useSelector((state) => { return state.savereserve })
   const islogin = useSelector((state) => { return state.islogin })
   const { id } = useParams();
   const handleClose = () => setShow(false);
@@ -26,7 +25,7 @@ function RevModal(props) {
         time : props.time
       });
       alert('예약이 완료되었습니다! :)'); 
-      handleShow();
+      handleClose();
     } catch (error) {
       alert('예약이 실패됐습니다 ㅠㅠ');
       console.log(error);

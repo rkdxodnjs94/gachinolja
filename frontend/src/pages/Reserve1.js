@@ -3,17 +3,25 @@ import Header from "../components/Header";
 import { InputGroup, FormControl, Button, Card, Row, Col, Pagination } from 'react-bootstrap';
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 // import axios from "axios";
 
 function Reserve1(){
 
   const navigate = useNavigate();
   const revdata = useSelector((state) => { return state.revdata });
+  const islogin = useSelector(( state ) => { return state.islogin });
   const [page, setPage] = useState(1);
   const [limit] = useState(12);
   const offset = (page - 1) * limit;
   const numPages = Math.ceil( (revdata.length) / limit );
+
+  useLayoutEffect(()=>{
+    if (islogin.userid === null) {
+      alert('로그인 하셔야 합니다');
+      navigate('/');
+    }
+  },[])
 
   return (
     <>
