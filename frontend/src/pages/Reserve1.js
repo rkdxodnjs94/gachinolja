@@ -22,7 +22,7 @@ function Reserve1(){
       <div className="container p-4">
         <Search />
         <Row xs={1} md={3} className="g-4 p-5">
-        { input ? null
+        { input !== '' ? null
           : revdata.slice(offset, offset + limit).map(( { id, name, address } ) => (
           <Col key={id}>
             <Card onClick={()=>{ navigate('/reserve2/' + revdata[id-1].id)}} style={{cursor : 'pointer'}}>
@@ -55,6 +55,7 @@ function Reserve1(){
             </Pagination>
           </Col>
         </Row>
+      
       </div>
       <Footer />
     </>

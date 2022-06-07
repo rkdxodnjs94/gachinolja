@@ -17,7 +17,6 @@ function Search(){
   });
   return (
   <>
-    {console.log(input)}
     <InputGroup className="container mb-3 w-50" style={{height:'50px'}}>
       <FormControl
       placeholder="예약할 장소를 입력해보세요"
@@ -30,8 +29,8 @@ function Search(){
       </Button>
     </InputGroup>
     <Row xs={1} md={3} className="g-4 p-5">
-      {
-        filtered.map((itemlist) => {
+      { input === '' ? null
+        : filtered.map((itemlist) => {
           return <Col key={itemlist.id}>
           <Card onClick={()=>{ navigate('/reserve2/' + itemlist.id)}} style={{cursor : 'pointer'}}>
           <Card.Img variant="top" src="holder.js/100px160" />
