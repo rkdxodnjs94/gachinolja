@@ -2,16 +2,18 @@ import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useSelector } from "react-redux";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function PtModal(props) {
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const islogin = useSelector((state) => { return state.islogin })
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const partyDB = (e) => {
+  async function partyDB(e){
     e.stopPropagation();
     try {
-      const response = axios.post('/api/party',{
+      const response = await axios.post('/api/party',{
         title : props.title,
         content : props.content,
         publisher : islogin.nickname,
@@ -19,8 +21,8 @@ function PtModal(props) {
         people : props.person
       });
       alert('모집되었습니다! :)');
-      console.log(response);
       handleClose();
+      navigate('/party');
     } catch (error) {
       alert('모집이 안됐습니다 ㅠㅠ');
       console.log(error);

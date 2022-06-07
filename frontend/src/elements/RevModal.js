@@ -12,10 +12,12 @@ function RevModal(props) {
   const { id } = useParams();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const reserveDB = (e) => {
+
+  // 예약등록기능
+  async function reserveDB(e) {
     e.stopPropagation();
     try {
-      const response = axios.post('/api/reserve',{
+      const response = await axios.post('/api/reserve',{
         publisher : islogin.nickname,
         publisherID : islogin.userid,
         place : revdata[id-1].name,
@@ -29,6 +31,7 @@ function RevModal(props) {
     } catch (error) {
       alert('예약이 실패됐습니다 ㅠㅠ');
       console.log(error);
+      handleClose();
     }
   }
 

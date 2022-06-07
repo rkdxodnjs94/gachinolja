@@ -6,13 +6,14 @@ import Main from '../pages/Main';
 import Reserve1 from '../pages/Reserve1';
 import Reserve2 from '../pages/Reserve2';
 import Party from '../pages/Party/Party';
+import RecruitParty from '../pages/Party/RecruitParty';
+import ReadParty from '../pages/Party/ReadParty';
 import BoardGame from '../pages/BoardGame';
 import Food from '../pages/Food';
 import Inquiry from '../pages/Inquiry/Inquiry';
 import EventList from '../pages/Inquiry/EventList';
 import NoticeList from '../pages/Inquiry/NoticeList';
 import SignUp from '../pages/SignUp';
-import RecruitParty from '../pages/Party/RecruitParty';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path='/reserve1' element={<Reserve1 />} />
       <Route path='/reserve2/:id' element={<Reserve2 />} />
       <Route path='/party' element={<Party />} />
+      <Route path='/party/:id' element={<ReadParty />} />
       <Route path='/party/recruit' element={<RecruitParty />} />
       <Route path='/boardgame' element={<BoardGame />} />
       <Route path='/food' element={<Food />} />

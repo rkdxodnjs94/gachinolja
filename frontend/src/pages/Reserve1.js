@@ -2,12 +2,14 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Search from "../elements/Search";
 import { Card, Row, Col, Pagination } from 'react-bootstrap';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { clear } from '../stores/InputSlice';
 
 function Reserve1(){
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const revdata = useSelector((state) => { return state.revdata });
   const input = useSelector((state) => { return state.input });
@@ -15,6 +17,12 @@ function Reserve1(){
   const [limit] = useState(12);
   const offset = (page - 1) * limit;
   const numPages = Math.ceil( (revdata.length) / limit );
+  // 페이지 끝날 때
+  useEffect(() => {
+    return () => {
+      dispatch(clear());
+    }
+  },[]);
 
   return (
     <>

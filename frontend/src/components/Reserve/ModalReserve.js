@@ -14,7 +14,7 @@ function ModalReserve(){
   const [value, onChange] = useState(new Date());
   const revdata = useSelector((state) => { return state.revdata })
   const reserve = useSelector((state) => { return state.reserve })
-  const people = new Array(7).fill(2);
+  const people = new Array(3).fill(2);
   const BigPeople = new Array(4).fill(5);
   const { id } = useParams();
   const [person, setPerson] = useState('2');
