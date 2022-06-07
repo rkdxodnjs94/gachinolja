@@ -1,44 +1,29 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { InputGroup, FormControl, Button, Card, Row, Col, Pagination } from 'react-bootstrap';
+import Search from "../elements/Search";
+import { Card, Row, Col, Pagination } from 'react-bootstrap';
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useLayoutEffect, useState } from "react";
-// import axios from "axios";
+import { useState } from "react";
 
 function Reserve1(){
 
   const navigate = useNavigate();
   const revdata = useSelector((state) => { return state.revdata });
-  const islogin = useSelector(( state ) => { return state.islogin });
+  const input = useSelector((state) => { return state.input });
   const [page, setPage] = useState(1);
   const [limit] = useState(12);
   const offset = (page - 1) * limit;
   const numPages = Math.ceil( (revdata.length) / limit );
 
-  useLayoutEffect(()=>{
-    if (islogin.userid === null) {
-      alert('로그인 하셔야 합니다');
-      navigate('/');
-    }
-  },[])
-
   return (
     <>
       <Header />
       <div className="container p-4">
-        <InputGroup className="container mb-3 w-50" style={{height:'50px'}}>
-          <FormControl
-            placeholder="예약할 장소를 입력해보세요"
-            aria-label="예약장소"
-            aria-describedby="basic-addon2"
-          />
-          <Button variant="outline-success" id="button-addon2">
-            검색
-          </Button>
-        </InputGroup>
+        <Search />
         <Row xs={1} md={3} className="g-4 p-5">
-        {revdata.slice(offset, offset + limit).map(( { id, name, address } ) => (
+        { input ? null
+          : revdata.slice(offset, offset + limit).map(( { id, name, address } ) => (
           <Col key={id}>
             <Card onClick={()=>{ navigate('/reserve2/' + revdata[id-1].id)}} style={{cursor : 'pointer'}}>
             <Card.Img variant="top" src="holder.js/100px160" />
@@ -49,7 +34,9 @@ function Reserve1(){
               </Card.Text>
             </Card.Body>
             </Card>
-          </Col>))}
+          </Col>
+          ))
+        }
         </Row>
         <Row>
           <Col md={{ span: 3, offset: 3 }}>

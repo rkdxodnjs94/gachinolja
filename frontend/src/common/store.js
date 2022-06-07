@@ -5,7 +5,8 @@ import islogin from '../stores/IsLoginSlice';
 // 예약 state용
 import reserve from '../stores/RevSlice';
 import savereserve from '../stores/SaveRevSlice';
-// import place from '../stores/PlaceSlice';
+// 검색 state용
+import input from '../stores/InputSlice';
 // 예약데이터 state용
 import revdata from '../stores/RevDataSlice';
 // Fade state용
@@ -16,7 +17,7 @@ export default configureStore({
     login : login.reducer,
     islogin : islogin.reducer,
     reserve : reserve.reducer,
-    // place : place.reducer,
+    input : input.reducer,
     savereserve : savereserve.reducer,
     revdata : revdata.reducer,
     fade : fade.reducer,
