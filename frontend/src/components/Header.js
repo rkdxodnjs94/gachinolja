@@ -60,10 +60,6 @@ function Header(){
               보드게임
             </div>
             <div role='button' className='col col-md-auto border menu1' onClick={()=>{
-              navigate('/food');}} onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>
-              음식메뉴
-            </div>
-            <div role='button' className='col col-md-auto border menu1' onClick={()=>{
               islogin.userid ? navigate('/inquiry') : alert('로그인 하셔야 합니다')}} 
             onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>문의하기
               <div className="submenu">
