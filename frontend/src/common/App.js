@@ -15,6 +15,7 @@ import EventList from '../pages/Inquiry/EventList';
 import NoticeList from '../pages/Inquiry/NoticeList';
 import SignUp from '../pages/SignUp';
 
+
 function App() {
   return (
     <Routes>

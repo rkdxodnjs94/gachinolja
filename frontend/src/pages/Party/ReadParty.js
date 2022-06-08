@@ -1,18 +1,22 @@
-import {Container, Row, Col, Form} from 'react-bootstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 function ReadParty(){
+
+    const navigate = useNavigate();
+    const islogin = useSelector((state) => { return state.islogin });
     const { id } = useParams();
     const [data, setData] = useState();
     
     useEffect(()=>{
       async function axiosdata(){
       try {
-        const response = await axios.get('/api/party/read',{
+        const response = await axios.get('/api/party/read', {
           params : { no : id }
         });
         setData(response);
@@ -22,6 +26,22 @@ function ReadParty(){
     }
     axiosdata();
     },[setData]);
+    async function applyDB(){
+      try {
+        const response = await axios.patch('/api/party/apply',{
+          data : {
+            apply : data?.data[0]?.apply + 1,
+            applypeople : islogin.userid
+          }
+        },
+        {params : { no : id }});
+        console.log(response);
+        alert('신청 완료되었습니다! XD');
+      } catch (error) {
+        alert('신청 실패 ㅠㅠ');
+        console.log(error)
+      }
+    }
 
     return (
       <>
@@ -46,12 +66,41 @@ function ReadParty(){
                 </Col>
               </Row>
             </Container>
-            <div className="h4 pb-2 mb-4 text-warning border-bottom border-secondary border-opacity-25">
+            <div className="h4 pb-2 mb-4 text-warning border-bottom border-secondary border-opacity-25"
+            style={{width: '50vw'}}>
             {data?.data[0]?.title}
             </div>
-            <div>
-            {data?.data[0]?.content}
+            <div style={{width:'100vw', height:'50vh'}}>
+            {data?.data[0]?.content.split('\n').map((line)=>{
+              return (
+              <>
+                {line}
+                <br/>
+              </>
+              )
+            })
+            }
             </div>
+            <div className="h4 pb-2 mb-4 text-warning border-bottom border-secondary border-opacity-25"
+            style={{width: '50vw'}}></div>
+            <Container>
+              <Row>
+                <Col style={{marginLeft : '32vw'}}>
+                  { 
+                  islogin.userid !== data?.data[0]?.publisherID
+                  ? data?.data[0]?.apply !== data?.data[0]?.people
+                    ? <Button className='mb-5' variant="primary"
+                      onClick={applyDB}>신청하기</Button>
+                    : null
+                  : null
+                  }
+                </Col>
+                <Col style={{marginRight : '25vw'}}>
+                  <Button className='mb-5 ms-3' variant="primary" 
+                    onClick={()=>{navigate('/party')}}>목록</Button>
+                </Col>
+              </Row>
+            </Container>
         </div>
         </Container>
         <Footer />

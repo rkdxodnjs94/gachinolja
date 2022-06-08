@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { Container, Table, Button } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import moment from 'moment';
@@ -11,7 +11,6 @@ function Party(){
   const navigate = useNavigate();
   const islogin = useSelector(( state ) => { return state.islogin });
   const [data, setData] = useState([]);
-  const [person, setPerson] = useState(1);
 
   useEffect(() => {
     async function axiosdata(){
@@ -29,7 +28,6 @@ function Party(){
 
   return (
     <>
-      {console.log(data)}
       <Header />
       <Container>
       <h1 className='p-5'>모집하기</h1>
@@ -47,13 +45,17 @@ function Party(){
           <tbody>
             {
               (Object.values(data)).map((data)=>{
-                return <tr key={data._id}>
+                return <tr key={data.no}>
                   <td className='text-center'>{data.no}</td>
                   <td className='text-center' style={{cursor : 'pointer'}}
                   onClick={()=>{navigate('/party/'+data.no)}}>{data.title}</td>
                   <td className='text-center'>{moment(data.date).format('YYYY-MM-DD')}</td>
                   <td className='text-center'>{data.publisher}</td>
-                  <td className='text-center'>{person}/{data.people}</td>
+                  {
+                    data.apply === data.people
+                    ? <td className='text-center'>{data.apply}/{data.people} 완료</td>
+                    : <td className='text-center'>{data.apply}/{data.people}</td>
+                  }
                 </tr>
               })
             }
