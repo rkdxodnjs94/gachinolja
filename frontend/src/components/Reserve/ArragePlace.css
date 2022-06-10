@@ -1,6 +1,6 @@
 .door {
   position: relative;
-  bottom: 2%;
+  top: 18%;
   right: 1%;
   width: 35px;
   height: 80px;
@@ -13,7 +13,7 @@
 }
 .counter {
   position: relative;
-  bottom: 80%;
+  bottom: 38%;
   right: 1%;
   width: 100px;
   height: 300px;
@@ -33,14 +33,14 @@
   left: 24%;
   width: 600px;
   height: 300px;
-  top: 1%;
+  top: 10%;
 }
 .place2 {
   position: relative;
-  left: 18%;
+  left: 17%;
   width: 600px;
   height: 120px;
-  top: 8%;
+  top: 19%;
 }
 .minisize {
   position: inherit;
@@ -104,12 +104,12 @@
   left: 64%;
 }
 .eleven {
-  top: 1%;
-  left: 72%;
+  top: 10%;
+  left: 71%;
 }
 .twelve {
-  top: 5%;
-  left: 72%;
+  top: 15%;
+  left: 71%;
 }
 .thirteen {
   top: 9%;

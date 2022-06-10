@@ -20,9 +20,10 @@ function RevModal(props) {
     e.stopPropagation();
     try {
 
-      if ( ( savereserve.find((element) => (element === islogin.userid )) ) 
-      && ( moment(new Date()).format('YYYY년 MM월 DD일') )){
-        alert('이미 예약하셨습니다 :)');
+      if ( savereserve?.map((a,i)=>
+      ((a.includes(islogin.userid)) && ( moment(new Date()).format('YYYY년 MM월 DD일') ) ))
+      .includes(true) ){
+        alert('이미 예약하셨습니다 :) \n(차후 예약하실 분은 전화로 문의 바랍니다.)');
         handleClose();
         return false;
       }
@@ -36,7 +37,7 @@ function RevModal(props) {
         date : props.datevalue,
         time : props.time
       });
-      alert('예약이 완료되었습니다! :)'); 
+      alert('예약이 완료되었습니다! :)');
       handleClose();
     } catch (error) {
       alert('예약이 실패됐습니다 ㅠㅠ');
@@ -47,7 +48,6 @@ function RevModal(props) {
 
   return (
     <>
-      {console.log(savereserve)}
       <Button variant="danger" onClick={handleShow}>
         예약하기
       </Button>
@@ -56,7 +56,8 @@ function RevModal(props) {
         <Modal.Header className='border-none' closeButton>
           <Modal.Title>예약하기</Modal.Title>
         </Modal.Header>
-        <Modal.Body>예약하시겠습니까?</Modal.Body>
+        <Modal.Body>등록시 예약변경이 불가합니다.<br/>
+          예약하시겠습니까?(예약변경시 전화문의)</Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={reserveDB}>
             예
