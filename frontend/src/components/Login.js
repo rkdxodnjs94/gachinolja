@@ -23,7 +23,7 @@ function Login(props){
       dispatch(loginPW((e.target.value)));
     }
   }
-  const onLock = (e) => {
+  async function onLock(e){
     //입력 값 정합성 체크 후 login API 요청
     if (islogin.userid === "" || islogin.userpw === "") {
       window.alert("아이디 또는 비밀번호를 입력해주세요.");
@@ -31,18 +31,23 @@ function Login(props){
     }
     e.stopPropagation();
     try {
-      const response = axios.post('/api/user/login',{
+      const response = await axios.post('/api/user/login',{
         userid : islogin.userid,
         userpw : islogin.userpw
       });
-      response.then((data) => { dispatch(loginNICK(data.data.nickname))});
-      console.log(response.then((data) => { console.log(data) }));
+      // async await 구문 안쓸시 : response.then((data) => { dispatch(loginNICK(data.data.nickname)) });
+      dispatch(loginNICK(response.data.nickname));
       alert('로그인 성공!');
       navigate('/');
       setCancel(true);
       dispatch(setLogin(false));
     } catch (error) {
-      window.alert('로그인에 실패했습니다');
+      alert('로그인 실패');
+      if (error?.response?.status === 401){
+        alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+        dispatch(loginID(''));
+        dispatch(loginPW(''));
+      }
       dispatch(loginID(''));
       dispatch(loginPW(''));
       console.log(error);

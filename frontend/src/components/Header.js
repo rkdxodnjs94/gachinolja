@@ -77,7 +77,7 @@ function Header(){
             </div>
           </div>
           { islogin.nickname
-          ? <div role='button' className='col col-md-auto border ms-auto' 
+          ? <div className='col col-md-auto border ms-auto' 
           onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>
               {islogin.nickname}님 환영합니다 ㅎㅎ
             <div className="submenu">

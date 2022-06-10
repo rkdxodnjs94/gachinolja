@@ -8,10 +8,8 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import RevModal from '../../elements/RevModal';
 
-
-function ModalReserve(){
+function ModalReserve(props){
   
-  const [value, onChange] = useState(new Date());
   const revdata = useSelector((state) => { return state.revdata })
   const reserve = useSelector((state) => { return state.reserve })
   const people = new Array(3).fill(2);
@@ -32,7 +30,7 @@ function ModalReserve(){
       <h3>예약하기</h3>
         <Row>
           <Col>
-            <Calendar onChange={onChange} value={value} defaultView='year' minDate={new Date()}/>
+            <Calendar onChange={props.onChange} value={props.value} defaultView='year' minDate={new Date()}/>
           </Col>
           <Col>
             <Form.Label>예약장소</Form.Label>
@@ -58,7 +56,7 @@ function ModalReserve(){
             <br/>
             <Form.Label>예약할 날짜</Form.Label>
             <Row style={{marginLeft : '1px'}}>
-              <Form.Control type="text" placeholder={moment(value).format('YYYY년 MM월 DD일')}
+              <Form.Control type="text" placeholder={moment(props.value).format('YYYY년 MM월 DD일')}
               aria-label="Disabled input example" disabled readOnly style={{width:'42%'}} required/>
               <Form.Select aria-label="revtime" style={{width:'32%'}} onChange={handleTime}
               value={time}>
@@ -78,7 +76,7 @@ function ModalReserve(){
               </Form.Select>
             </Row>
             <br/>
-            <RevModal datevalue={value} person={person} time={time}/> 
+            <RevModal datevalue={props.value} person={person} time={time}/> 
           </Col>
         </Row>
       </Container>

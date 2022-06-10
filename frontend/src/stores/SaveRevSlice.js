@@ -11,10 +11,16 @@ const SaveReserve = createSlice({
     setSaveArg(state, action){
       state.push(action.payload);
     },
+    setSavePbID(state, action){
+      state.push(action.payload);
+    },
+    setSaveDate(state, action){
+      state.push(action.payload);
+    },
     clear : () => initialState
   }
 });
 
-export const { clear, setSaveArg } = SaveReserve.actions;
+export const { clear, setSaveArg, setSavePbID, setSaveDate } = SaveReserve.actions;
 
 export default SaveReserve;

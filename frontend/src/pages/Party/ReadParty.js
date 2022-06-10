@@ -27,6 +27,10 @@ function ReadParty(){
     axiosdata();
     },[setData]);
     async function applyDB(){
+      if (islogin.userid === ''){
+        alert('로그인 하셔야 합니다');
+        return false;
+      }
       try {
         const response = await axios.patch('/api/party/apply',{
           data : {

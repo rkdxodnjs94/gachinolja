@@ -13,7 +13,7 @@ function PtModal(props) {
   async function partyDB(e){
     e.stopPropagation();
     try {
-      const response = await axios.post('/api/party',{
+      const response = await axios.post('/api/party/',{
         title : props.title,
         content : props.content,
         publisher : islogin.nickname,
