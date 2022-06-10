@@ -19,13 +19,14 @@ function RevModal(props) {
   async function reserveDB(e) {
     e.stopPropagation();
     try {
-      try {
-        if ((savereserve === islogin.userid) && (moment(new Date()).format('YYYY년 MM월 DD일'))){
-          throw new Error('오류 테스트');
-        }
-      } catch (error) {
-        console.log(error);
+
+      if ( ( savereserve.find((element) => (element === islogin.userid )) ) 
+      && ( moment(new Date()).format('YYYY년 MM월 DD일') )){
+        alert('이미 예약하셨습니다 :)');
+        handleClose();
+        return false;
       }
+
       const response = await axios.post('/api/reserve',{
         publisher : islogin.nickname,
         publisherID : islogin.userid,
@@ -46,6 +47,7 @@ function RevModal(props) {
 
   return (
     <>
+      {console.log(savereserve)}
       <Button variant="danger" onClick={handleShow}>
         예약하기
       </Button>

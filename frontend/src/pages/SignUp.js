@@ -100,10 +100,14 @@ function SignUp(){
     }
   }, [])
 
-  const onRegister = (e) => {
+  async function onRegister(e){
     e.stopPropagation();
+    if (userPw !== userPwCheck){
+      alert('비밀번호가 일치하지 않습니다.');
+      return false;
+    }
     try { 
-      const response = axios.post('/api/user/register',{
+      const response = await axios.post('/api/user/register',{
         userid : userId,
         userpw : userPw,
         nickname : nickname,
@@ -114,7 +118,13 @@ function SignUp(){
       navigate('/');
       console.log(response);
     } catch (error) {
-      console.log(error);
+      alert('가입 실패');
+      if (error.response.status === 400){
+        alert('모든 항목이 필수 입력사항입니다.');
+      }
+      else if (error.response.status === 409){
+        alert('형식에 맞게 잘 입력해주세요');
+      }
     }
   }
 

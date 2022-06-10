@@ -21,11 +21,13 @@ function ArragePlace(props){
           params : {place : revdata[id-1].name}
         });
         for ( let i=0; i<response.data.length; i++) {
-          dispatch(setSaveArg(response.data[i].arrage));
-          dispatch(setSavePbID(response.data[i].publisherID));
-          dispatch(setSaveDate(moment(response.data[i].date).format('YYYY년 MM월 DD일')));
+          if ( (moment(response.data[i].date).format('YYYY년 MM월 DD일'))
+           === (moment(props.value).format('YYYY년 MM월 DD일')) ){
+            dispatch(setSaveArg(response.data[i].arrage));
+            dispatch(setSavePbID(response.data[i].publisherID));
+            dispatch(setSaveDate(moment(response.data[i].date).format('YYYY년 MM월 DD일')));
+          }
         }
-        console.log(response);
       } catch (error) {
         console.log(error);
       }
@@ -41,7 +43,6 @@ function ArragePlace(props){
 
   return (
     <Suspense fallback={<h1>로딩중입니당</h1>}>
-      {console.log(savereserve)}
       <div className="container border rounded"
         style={{height:'700px', minWidth: '800px'}}>
         <div className='place1 row'>

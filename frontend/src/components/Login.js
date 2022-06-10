@@ -45,6 +45,7 @@ function Login(props){
       alert('로그인 실패');
       if (error?.response?.status === 401){
         alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+        document.getElementsByName('userid').
         dispatch(loginID(''));
         dispatch(loginPW(''));
       }
