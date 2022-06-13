@@ -33,7 +33,7 @@
   left: 24%;
   width: 600px;
   height: 300px;
-  top: 10%;
+  top: 11%;
 }
 .place2 {
   position: relative;
@@ -102,13 +102,14 @@
 }
 .ten {
   left: 64%;
+  top: 11%;
 }
 .eleven {
-  top: 10%;
+  top: 15%;
   left: 71%;
 }
 .twelve {
-  top: 15%;
+  top: 18%;
   left: 71%;
 }
 .thirteen {

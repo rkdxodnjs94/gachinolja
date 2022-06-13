@@ -45,6 +45,7 @@ function ArragePlace(props){
       <div className="container border rounded"
         style={{height:'900px', minWidth: '800px',marginBottom:'21vh'}}>
         <div className='place1 row'>
+          <h2>{revdata[id-1].name}</h2>
           {
             savereserve?.map((a,i) => (
               a.includes(1) && a.includes(moment(props.value).format('YYYY년 MM월 DD일'))

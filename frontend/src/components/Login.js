@@ -1,17 +1,23 @@
 import './Login.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button, Alert, CloseButton } from 'react-bootstrap'; 
 import { useDispatch, useSelector } from 'react-redux';
 import { setLogin } from '../stores/LoginSlice';
 import { loginID, loginPW, loginNICK } from '../stores/IsLoginSlice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 function Login(props){
   
+  const google = window.google;
+  const googleAPI = process.env.REACT_APP_GOOGLE_API_KEY;
+  const googleSecret = process.env.REACT_APP_GOOGLE_API_SECRET;
+  const [googleUser, setGoogleUser] = useState({});
   const [cancel, setCancel] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const searchParams = useSearchParams();
   const islogin = useSelector((state) => { return state.islogin});
   const onChangeId = (e) => {
     if ( e.target.name === 'userid'){
@@ -54,6 +60,32 @@ function Login(props){
       console.log(error);
     }
   };
+
+  function handleCallbackResponse(response) {
+    console.log("Encoded JWT ID token : "+response.credential);
+    const userObject = jwt_decode(response.credential);
+    console.log(userObject);
+    setGoogleUser(userObject);
+    document.getElementById("signInDiv").hidden = true;
+  }
+  function handleSignOut(event) {
+    setGoogleUser({});
+    document.getElementById('signInDiv').hidden = false;
+  }
+  useEffect(()=>{
+    google.accounts.id.initialize({
+      client_id : googleAPI,
+      callback : handleCallbackResponse,
+    });
+
+    google.accounts.id.renderButton(
+      document.getElementById("signInDiv"),
+      { theme : "outline", size : "large"}
+    );
+  },[]);
+  // 로그인 유저가 없을 때 : 로그인 버튼
+  // 로그인 유저가 있을 때 : 로그아웃 버튼
+
 
   return (
     <>
@@ -102,9 +134,17 @@ function Login(props){
           <Alert variant='primary' className='text-center'>
             <Alert.Link href="#">페이스북</Alert.Link>
           </Alert>
-          <Alert variant='info' className='text-center'>
-            <Alert.Link href="#">구글</Alert.Link>
-          </Alert>
+          {/* 구글 Oauth */}
+          <div id='signInDiv'></div>
+          { Object.keys(googleUser).length != 0 &&
+            <button onClick={ (e) => handleSignOut(e)}>로그아웃</button>
+          }
+          { googleUser &&
+            <div>
+              <img src={googleUser.picture}></img>
+              <h3>{googleUser.name}</h3>
+            </div>
+          }
           <div role='button' className='container text-center' onClick={(e)=>{
             e.stopPropagation();
             dispatch(setLogin(false));
