@@ -10,6 +10,8 @@ function RevModal(props) {
   const revdata = useSelector((state) => { return state.revdata })
   const reserve = useSelector((state) => { return state.reserve })
   const islogin = useSelector((state) => { return state.islogin })
+  const googleuser = useSelector((state) => { return state.googleuser })
+  const facebookuser = useSelector((state) => { return state.facebookuser })
   const savereserve = useSelector((state) => { return state.savereserve })
   const { id } = useParams();
   const handleClose = () => setShow(false);
@@ -29,8 +31,8 @@ function RevModal(props) {
       }
 
       const response = await axios.post('/api/reserve',{
-        publisher : islogin.nickname,
-        publisherID : islogin.userid,
+        publisher : islogin.nickname || googleuser.name || facebookuser.name,
+        publisherID : islogin.userid || googleuser.email || facebookuser.email,
         place : revdata[id-1].name,
         arrage : reserve,
         people : props.person,

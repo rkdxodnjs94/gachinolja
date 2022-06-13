@@ -4,20 +4,27 @@ import { Form, Button, Alert, CloseButton } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLogin } from '../stores/LoginSlice';
 import { loginID, loginPW, loginNICK } from '../stores/IsLoginSlice';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+// google oauth
+import { setGoogleUser } from '../stores/GoogleSlice';
 import jwt_decode from 'jwt-decode';
+// facebook oauth
+import FacebookLogin from '@greatsumini/react-facebook-login';
+import { setFacebookUser } from '../stores/FacebookSlice';
+import { setNaverUser } from '../stores/NaverSlice';
 
 function Login(props){
   
   const google = window.google;
-  const googleAPI = process.env.REACT_APP_GOOGLE_API_KEY;
-  const googleSecret = process.env.REACT_APP_GOOGLE_API_SECRET;
-  const [googleUser, setGoogleUser] = useState({});
+  const { naver } = window;
+  const googleAPIKey = process.env.REACT_APP_GOOGLE_API_KEY;
+  const facebookAPIKey = process.env.REACT_APP_FACEBOOK_API_KEY;
+  const naverAPIKey = process.env.REACT_APP_NAVER_API_KEY;
   const [cancel, setCancel] = useState(false);
+  const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const searchParams = useSearchParams();
   const islogin = useSelector((state) => { return state.islogin});
   const onChangeId = (e) => {
     if ( e.target.name === 'userid'){
@@ -51,30 +58,26 @@ function Login(props){
       alert('로그인 실패');
       if (error?.response?.status === 401){
         alert('아이디 또는 비밀번호가 일치하지 않습니다.');
-        document.getElementsByName('userid').
-        dispatch(loginID(''));
-        dispatch(loginPW(''));
+        return;
       }
       dispatch(loginID(''));
       dispatch(loginPW(''));
       console.log(error);
     }
   };
-
+  // 구글 oauth
   function handleCallbackResponse(response) {
     console.log("Encoded JWT ID token : "+response.credential);
     const userObject = jwt_decode(response.credential);
     console.log(userObject);
-    setGoogleUser(userObject);
+    dispatch(setGoogleUser(userObject));
     document.getElementById("signInDiv").hidden = true;
-  }
-  function handleSignOut(event) {
-    setGoogleUser({});
-    document.getElementById('signInDiv').hidden = false;
+    navigate('/');
+    setCancel(true);
   }
   useEffect(()=>{
     google.accounts.id.initialize({
-      client_id : googleAPI,
+      client_id : googleAPIKey,
       callback : handleCallbackResponse,
     });
 
@@ -82,9 +85,35 @@ function Login(props){
       document.getElementById("signInDiv"),
       { theme : "outline", size : "large"}
     );
+
+    google.accounts.id.prompt();
   },[]);
   // 로그인 유저가 없을 때 : 로그인 버튼
   // 로그인 유저가 있을 때 : 로그아웃 버튼
+
+  // naver oauth
+  const initializeNaverLogin = () => {
+    const naverLogin = new naver.LoginWithNaverId({
+      clientId : naverAPIKey,
+      callbackUrl : "http://localhost:3001/",
+      isPopup : false, // popup 형식으로 띄울것인지 설정
+      loginButton: { color: 'white', type: 3, height: '60' }, //버튼의 스타일, 타입, 크기를 지
+    })
+    naverLogin.init();
+    // token 발급
+    if (!location.hash) return;
+    const token = location.hash.split('=')[1].split('&')[0];
+    console.log(token);
+    naverLogin.getLoginStatus((status) => {
+      if (status) {
+        console.log(naverLogin.user);
+        dispatch(setNaverUser(naverLogin.user));
+      }
+    });
+  };
+  useEffect(()=>{
+    initializeNaverLogin();
+  },[setNaverUser]);
 
 
   return (
@@ -125,26 +154,28 @@ function Login(props){
           <div className='line'>
             또는
           </div>
-          <Alert variant='success' className='text-center'>
-            <Alert.Link href="#">네이버</Alert.Link>
-          </Alert>
+          {/* 네이버 Oauth */}
+          <div id="naverIdLogin" />
           <Alert variant='warning' className='text-center'>
             <Alert.Link href="#">카카오톡</Alert.Link>
           </Alert>
-          <Alert variant='primary' className='text-center'>
-            <Alert.Link href="#">페이스북</Alert.Link>
-          </Alert>
+          {/* 페이스북 Oauth */}
+          <FacebookLogin
+            appId={facebookAPIKey}
+            onFail={(error) => {
+              console.log('Login Failed!');
+              console.log('status: ', error.status);
+            }}
+            onProfileSuccess={(response) => {
+              console.log('Get Profile Success!');
+              console.log('response: ', response);
+              dispatch(setFacebookUser(response));
+              navigate('/');
+              setCancel(true);
+            }}
+          />
           {/* 구글 Oauth */}
           <div id='signInDiv'></div>
-          { Object.keys(googleUser).length != 0 &&
-            <button onClick={ (e) => handleSignOut(e)}>로그아웃</button>
-          }
-          { googleUser &&
-            <div>
-              <img src={googleUser.picture}></img>
-              <h3>{googleUser.name}</h3>
-            </div>
-          }
           <div role='button' className='container text-center' onClick={(e)=>{
             e.stopPropagation();
             dispatch(setLogin(false));

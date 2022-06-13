@@ -10,6 +10,7 @@ import moment from 'moment';
 function Party(){
   const navigate = useNavigate();
   const islogin = useSelector(( state ) => { return state.islogin });
+  const googleuser = useSelector(( state ) => { return state.googleuser }) ;
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -62,7 +63,7 @@ function Party(){
           </tbody>
         </Table>
         <div className='mb-4 mt-4 me-4 d-flex justify-content-end'>
-          <Button onClick={()=>{islogin.userid 
+          <Button onClick={()=>{islogin.userid || googleuser.email
           ? navigate('/party/recruit')
           : alert('로그인 하셔야 합니다')}}>모집하기</Button>
         </div>

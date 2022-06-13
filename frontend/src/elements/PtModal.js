@@ -8,6 +8,8 @@ function PtModal(props) {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const islogin = useSelector((state) => { return state.islogin })
+  const googleuser = useSelector((state) => { return state.googleuser });
+  const facebookuser = useSelector((state) => { return state.facebookuser });
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   async function partyDB(e){
@@ -16,8 +18,8 @@ function PtModal(props) {
       const response = await axios.post('/api/party/',{
         title : props.title,
         content : props.content,
-        publisher : islogin.nickname,
-        publisherID : islogin.userid,
+        publisher : islogin.nickname || googleuser.name || facebookuser.name,
+        publisherID : islogin.userid || googleuser.email || facebookuser.email,
         people : props.person
       });
       alert('모집되었습니다! :)');

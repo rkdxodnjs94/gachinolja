@@ -1,3 +1,8 @@
+/* 폰트 */
+div {
+  font-family : 'GowunDodum-Regular';
+}
+
 /* stroke */
 div.stroke .menu .menu1,
 div.stroke .menu .menu1:after,

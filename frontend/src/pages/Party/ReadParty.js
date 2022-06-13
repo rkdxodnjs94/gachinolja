@@ -10,6 +10,8 @@ function ReadParty(){
 
     const navigate = useNavigate();
     const islogin = useSelector((state) => { return state.islogin });
+    const googleuser = useSelector((state) => { return state.googleuser });
+    const facebookuser = useSelector((state) => { return state.facebookuser });
     const { id } = useParams();
     const [data, setData] = useState();
     
@@ -27,7 +29,15 @@ function ReadParty(){
     axiosdata();
     },[setData]);
     async function applyDB(){
-      if (islogin.userid === ''){
+      if (islogin.userid === null){
+        alert('로그인 하셔야 합니다');
+        return false;
+      }
+      else if (googleuser.email === null){
+        alert('로그인 하셔야 합니다');
+        return false;
+      }
+      else if (facebookuser.email === null){
         alert('로그인 하셔야 합니다');
         return false;
       }
@@ -35,7 +45,7 @@ function ReadParty(){
         const response = await axios.patch('/api/party/apply',{
           data : {
             apply : data?.data[0]?.apply + 1,
-            applypeople : islogin.userid
+            applypeople : islogin.userid || googleuser.email || facebookuser.email
           }
         },
         {params : { no : id }});
@@ -91,7 +101,8 @@ function ReadParty(){
               <Row>
                 <Col style={{marginLeft : '32vw'}}>
                   { 
-                  islogin.userid !== data?.data[0]?.publisherID
+                  islogin.userid !== data?.data[0]?.publisherID || googleuser.email !== data?.data[0]?.publisherID
+                  || facebookuser.email !== data?.data[0]?.publisherID
                   ? data?.data[0]?.apply !== data?.data[0]?.people
                     ? <Button className='mb-5' variant="primary"
                       onClick={applyDB}>신청하기</Button>
