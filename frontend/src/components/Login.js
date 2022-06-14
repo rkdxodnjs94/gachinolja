@@ -90,14 +90,18 @@ function Login(props){
   },[]);
   // 로그인 유저가 없을 때 : 로그인 버튼
   // 로그인 유저가 있을 때 : 로그아웃 버튼
-
-  // naver oauth
+  const handleGoogleClick = () => {
+    const loginbtn = document.getElementById('signInDiv');
+    loginbtn.click();
+  }
+ 
+  // 네이버 oauth
   const initializeNaverLogin = () => {
     const naverLogin = new naver.LoginWithNaverId({
       clientId : naverAPIKey,
       callbackUrl : "http://localhost:3001/",
       isPopup : false, // popup 형식으로 띄울것인지 설정
-      loginButton: { color: 'white', type: 3, height: '60' }, //버튼의 스타일, 타입, 크기를 지
+      loginButton: { color: 'green', type : 1, height: '60' }, //버튼의 스타일, 타입, 크기를 지
     })
     naverLogin.init();
     // token 발급
@@ -109,11 +113,22 @@ function Login(props){
         console.log(naverLogin.user);
         dispatch(setNaverUser(naverLogin.user));
       }
-    });
+      });
+  };
+  // 네이버 버튼 커스터마이징
+  const handleNaverClick = () => {
+    if (
+      document &&
+      document?.querySelector('#naverIdLogin')?.firstChild &&
+      window !== undefined
+    ) {
+      const loginBtn = document.getElementById('naverIdLogin')?.firstChild;
+      loginBtn.click();
+    }
   };
   useEffect(()=>{
     initializeNaverLogin();
-  },[setNaverUser]);
+  },[]);
 
 
   return (
@@ -155,10 +170,14 @@ function Login(props){
             또는
           </div>
           {/* 네이버 Oauth */}
-          <div id="naverIdLogin" />
-          <Alert variant='warning' className='text-center'>
-            <Alert.Link href="#">카카오톡</Alert.Link>
-          </Alert>
+          <div id="naverIdLogin" style={{position: 'absolute', left:'-10000px'}} />
+          <div onClick={handleNaverClick} style={{cursor : 'pointer'}}>
+            <img src='/images/naverbutton.png' height='55' />
+          </div>
+          {/* 카카오톡 Oauth */}
+          <div>
+            <img src='/images/kakaobutton.png' height='55' />
+          </div>
           {/* 페이스북 Oauth */}
           <FacebookLogin
             appId={facebookAPIKey}
@@ -173,9 +192,17 @@ function Login(props){
               navigate('/');
               setCancel(true);
             }}
+            render={renderProps => (
+              <div onClick={renderProps.onClick} style={{cursor:'pointer'}}>
+                <img src='/images/facebookbutton.png' height='55' />
+              </div>
+            )}
           />
           {/* 구글 Oauth */}
-          <div id='signInDiv'></div>
+          <div id='signInDiv' style={{position: 'absolute', bottom:'-10000px'}} />
+          <div onClick={handleGoogleClick} style={{cursor : 'pointer'}}>
+            <img src='/images/googlebutton.png' height='60' />
+          </div>
           <div role='button' className='container text-center' onClick={(e)=>{
             e.stopPropagation();
             dispatch(setLogin(false));

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-import { Container, Table, Button } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
@@ -33,10 +33,10 @@ function Party(){
       <Container>
       <h1 className='p-5'>모집하기</h1>
         <div className='px-5'>
-        <Table responsive="sm">
-          <thead>
+        <table className='w-100' responsive="sm">
+          <thead className='border-dark border-bottom'>
             <tr className='text-center'>
-              <th>No</th>
+              <th className='py-1'>No</th>
               <th>제목</th>
               <th>작성일</th>
               <th>작성자</th>
@@ -46,8 +46,8 @@ function Party(){
           <tbody>
             {
               (Object.values(data)).map((data)=>{
-                return <tr key={data.no}>
-                  <td className='text-center'>{data.no}</td>
+                return <tr className='border-dark border-bottom' key={data.no}>
+                  <td className='text-center py-2'>{data.no}</td>
                   <td className='text-center' style={{cursor : 'pointer'}}
                   onClick={()=>{navigate('/party/'+data.no)}}>{data.title}</td>
                   <td className='text-center'>{moment(data.date).format('YYYY-MM-DD')}</td>
@@ -61,7 +61,7 @@ function Party(){
               })
             }
           </tbody>
-        </Table>
+        </table>
         <div className='mb-4 mt-4 me-4 d-flex justify-content-end'>
           <Button onClick={()=>{islogin.userid || googleuser.email
           ? navigate('/party/recruit')

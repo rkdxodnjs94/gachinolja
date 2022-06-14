@@ -1,6 +1,8 @@
 /* 폰트 */
-div {
-  font-family : 'GowunDodum-Regular';
+div .header {
+  font-family : 'GmarketSansTTFBold';
+  font-size: 19px;
+  background: #FFFFFF;
 }
 
 /* stroke */
@@ -13,7 +15,7 @@ div.stroke .menu1 .subsubmenu {
   transition: all .5s;
 }
 div.stroke .menu1 .subsubmenu:hover {
-  color: red;
+  color: #074D1E;
 }
 div.stroke .menu .menu1 {
   position: relative;
@@ -33,6 +35,14 @@ div.stroke .menu .menu1:after{
 }
 div.stroke .menu .menu1:hover:after {
   width: 100%;
+}
+.menu {
+  margin-left: 17vw;
+  width: 30vw;
+}
+.user {
+  margin-left: 11vw;
+  width: 20vw;
 }
 /* hover sidemenu */
 .menu1 {

@@ -18,9 +18,6 @@ import EventList from '../pages/Inquiry/EventList';
 import NoticeList from '../pages/Inquiry/NoticeList';
 // page경로(회원가입)
 import SignUp from '../pages/SignUp';
-// page경로(Oauth)
-import Oauth from '../pages/Oauth';
-
 
 function App() {
   return (
@@ -36,7 +33,6 @@ function App() {
       <Route path='/event' element={<EventList />} />
       <Route path='/notice' element={<NoticeList />} />
       <Route path='/signup' element={<SignUp />} />
-      <Route path='/oauth' element={<Oauth />} />
     </Routes>
   );
 }
