@@ -2,761 +2,914 @@
     {
       "id" : "1",
       "name" : "키랩보드게임 룸카페 건대본점",
-      "address" : "서울 광진구 아차산로33길 49 키랩보드게임 룸카페 건대본점" 
+      "address" : "서울 광진구 아차산로33길 49 키랩보드게임 룸카페 건대본점",
+      "image" : "/images/reserve/kilab.jpeg"
     },
     {
       "id" : "2",
       "name" : "보드게임카페 레드버튼 강남점",
-      "address" : "서울 강남구 강남대로 442 1층"
+      "address" : "서울 강남구 강남대로 442 1층",
+      "image" : "/images/reserve/redbutton.png"
     },
     {
       "id" : "3",
       "name" : "히어로보드게임카페 건대본점",
-      "address" : "서울 광진구 능동로13길 39"
+      "address" : "서울 광진구 능동로13길 39",
+      "image" : "/images/reserve/hero.jpeg"
     },
     {
       "id" : "4",
       "name" : "몬스터핸드보드카페 방이점",
-      "address" : "서울 송파구 오금로13길 9"
+      "address" : "서울 송파구 오금로13길 9",
+      "image" : "/images/reserve/monsterhand.png"
     },
     {
       "id" : "5",
       "name" : "보드게임카페 레드버튼 홍대점",
-      "address" : "서울 마포구 홍익로 19 3층"
+      "address" : "서울 마포구 홍익로 19 3층",
+      "image" : "/images/reserve/redbutton.png"
     },
     {
       "id" : "6",
       "name" : "퍼스트보드게임카페 대학로점",
-      "address" : "서울 종로구 대학로 130 3층"
+      "address" : "서울 종로구 대학로 130 3층",
+      "image" : "/images/reserve/first.png"
     },
     {
       "id" : "7",
       "name" : "다빈치보드게임카페",
-      "address" : "서울 광진구 아차산로 235 6층"
+      "address" : "서울 광진구 아차산로 235 6층",
+      "image" : "/images/reserve/dabinchi.jpg"
     },
     {
       "id" : "8",
       "name" : "보드게임카페 홈즈앤루팡 홍대점",
-      "address" : "서울 마포구 홍익로3길 8 5층"
+      "address" : "서울 마포구 홍익로3길 8 5층",
+      "image" : "/images/reserve/homeslupang.png"
     },
     {
       "id" : "9",
       "name" : "보드게임카페 보드팩토리",
-      "address" : "서울 마포구 어울마당로 70 서포빌딩 5층"
+      "address" : "서울 마포구 어울마당로 70 서포빌딩 5층",
+      "image" : "/images/reserve/boardfactory.jpeg"
     },
     {
       "id" : "10",
       "name" : "보드게임카페 레드버튼 신촌점",
-      "address" : "서울 서대문구 연세로 8 3층"
+      "address" : "서울 서대문구 연세로 8 3층",
+      "image" : "/images/reserve/redbutton.png"
     },
     {
       "id" : "11",
       "name" : "히어로보드게임카페 건대1호점",
-      "address" : "서울 광진구 아차산로 221 3층 히어로보드게임카페"
+      "address" : "서울 광진구 아차산로 221 3층 히어로보드게임카페",
+      "image" : "/images/reserve/hero.jpeg"
     },
     {
       "id" : "12",
       "name" : "보드게임카페 더조커 홍대점",
-      "address": "서울 마포구 잔다리로2길 19 2층 보드게임카페 더조커 홍대점"
+      "address": "서울 마포구 잔다리로2길 19 2층 보드게임카페 더조커 홍대점",
+      "image" : "/images/reserve/thejoker.jpeg"
     },
     {
       "id" : "13",
       "name" : "보드게임카페 레드버튼 노원점",
-      "address": "서울 노원구 노해로79길 6-19 나동 4층 1호, 2호"
+      "address": "서울 노원구 노해로79길 6-19 나동 4층 1호, 2호",
+      "image" : "/images/reserve/redbutton.png"
     },
     {
       "id" : "14",
       "name" : "보드게임카페 홈즈앤루팡 건대점",
-      "address" : "서울 광진구 아차산로 241 연한빌딩 2층"
+      "address" : "서울 광진구 아차산로 241 연한빌딩 2층",
+      "image" : "/images/reserve/homeslupang.png"
     },
     {
       "id" : "15",
       "name" : "플렉스보드게임카페",
-      "address" : "서울 양천구 신정중앙로 94 5층"
+      "address" : "서울 양천구 신정중앙로 94 5층",
+      "image" : "/images/reserve/flex.gif"
     },
     {
       "id" : "16",
       "name" : "보드게임카페 레드버튼 대학로점",
-      "address" : "서울 종로구 대명길 9 4층"
+      "address" : "서울 종로구 대명길 9 4층",
+      "image" : "/images/reserve/redbutton.png"
     },
     {
       "id" : "17",
       "name" : "보드게임카페 홈즈앤루팡 노원점",
-      "address" : "서울 노원구 상계로 64 화랑빌딩 3층"
+      "address" : "서울 노원구 상계로 64 화랑빌딩 3층",
+      "image" : "/images/reserve/homeslupang.png"
     },
     {
       "id" : "18",
       "name" : "히어로보드게임카페 홍대1호점",
-      "address" : "서울 마포구 와우산로21길 31-10 2층 히어로보드게임카페"
+      "address" : "서울 마포구 와우산로21길 31-10 2층 히어로보드게임카페",
+      "image" : "/images/reserve/hero.jpeg"
     },
     {
       "id" : "19",
       "name" : "몬스터핸드 보드카페",
-      "address" : "서울 노원구 상계로3길 10 3층"
+      "address" : "서울 노원구 상계로3길 10 3층",
+      "image" : "/images/reserve/monsterhand.png"
     },
     {
       "id" : "20",
       "name" : "플레이보드",
-      "address": "서울 마포구 잔다리로6길 20-9 3층"
+      "address": "서울 마포구 잔다리로6길 20-9 3층",
+      "image" : "/images/reserve/playboard.jpeg"
+
     },
     {
       "id" : "21",
       "name" : "보드게임카페 레드버튼 신림점",
-      "address" : "서울 관악구 신림로 323 3층 레드버튼"
+      "address" : "서울 관악구 신림로 323 3층 레드버튼",
+      "image" : "/images/reserve/redbutton.png"
     },
     {
       "id" : "22",
       "name" : "히어로보드게임카페 발산점",
-      "address" : "서울 강서구 강서로 385 3층 히어로보드게임카페 발산점"
+      "address" : "서울 강서구 강서로 385 3층 히어로보드게임카페 발산점",
+      "image" : "/images/reserve/hero.jpeg"
     },
     {
       "id" : "23",
       "name": "몬스터핸드 보드게임카페 잠실새내점",
-      "address" : "서울 송파구 백제고분로7길 39 4층 몬스터핸드 보드게임카페"
+      "address" : "서울 송파구 백제고분로7길 39 4층 몬스터핸드 보드게임카페",
+      "image" : "/images/reserve/monsterhand.png"
     },
     {
       "id" : "24",
       "name": "포퀸스보드카페 마곡점",
-      "address": "서울 강서구 마곡동로 62 마곡사이언스타워 5층"
+      "address": "서울 강서구 마곡동로 62 마곡사이언스타워 5층",
+      "image" : "/images/reserve/foqueens.png"
     },
     {
       "id" : "25",
       "name" : "포퀸스보드카페 서울대입구점",
-      "address": "서울 관악구 관악로 152 3층"
+      "address": "서울 관악구 관악로 152 3층",
+      "image" : "/images/reserve/foqueens.png"
     },
     {
       "id" : "26",
       "name": "미니미 보드게임 룸 카페",
-      "address": "서울 성북구 동소문로22길 43 4층, 5층"
+      "address": "서울 성북구 동소문로22길 43 4층, 5층",
+      "image" : "/images/reserve/minimi.jpeg"
     },
     {
       "id" : "27",
       "name" : "플레이온보드게임카페",
-      "address": "서울 관악구 남부순환로 1592 3층"
+      "address": "서울 관악구 남부순환로 1592 3층",
+      "image" : "/images/reserve/playon.jpeg"
     },
     {
       "id" : "28",
       "name" : "보드게임카페 홈즈앤루팡 신촌점",
-      "address": "서울 서대문구 연세로 12 지하1층"
+      "address": "서울 서대문구 연세로 12 지하1층",
+      "image" : "/images/reserve/homeslupang.png"
     },
     {
       "id" : "29",
       "name": "위펀",
-      "address": "서울 강남구 논현로175길 75 B1F"
+      "address": "서울 강남구 논현로175길 75 B1F",
+      "image" : "/images/reserve/wefun.jpeg"
     },
     {
       "id" : "30",
       "name" : "더조커 홍대2호점",
-      "address" : "서울 마포구 와우산로21길 20-5 홍대프라자 2층"
+      "address" : "서울 마포구 와우산로21길 20-5 홍대프라자 2층",
+      "image" : "/images/reserve/thejoker.jpeg"
     },
     {
       "id" : "31",
       "name" : "에이스보드카페",
-      "address" : "서울 마포구 독막로7길 27 아산빌딩 지하1층"
+      "address" : "서울 마포구 독막로7길 27 아산빌딩 지하1층",
+      "image" : "/images/reserve/ace.png"
     },
     {
       "id" : "32",
       "name" : "히어로보드게임카페 신촌점",
-      "address": "서울 서대문구 명물길 23 3층"
+      "address": "서울 서대문구 명물길 23 3층",
+      "image" : "/images/reserve/hero.jpeg"
     },
     {
       "id" : "33",
       "name": "와룸보드게임카페",
-      "address" : "서울 관악구 남부순환로226길 28 지하1층"
+      "address" : "서울 관악구 남부순환로226길 28 지하1층",
+      "image" : "/images/reserve/waroom.png"
     },
     {
       "id" : "34",
       "name" : "보드게임카페 보드스토리",
-      "address": "서울 종로구 종로12길 16 대성빌딩"
+      "address": "서울 종로구 종로12길 16 대성빌딩",
+      "image" : "/images/reserve/boardgamestory.png"
     },
     {
       "id" : "35",
       "name" : "월드보드게임카페",
-      "address" : "서울 강북구 도봉로87길 9 4층"
+      "address" : "서울 강북구 도봉로87길 9 4층",
+      "image" : "/images/reserve/world.jpeg"
     },
     {
       "id" : "36",
       "name"  : "윙보드게임카페",
-      "address" : "서울 성동구 마조로 7 3층"
+      "address" : "서울 성동구 마조로 7 3층",
+      "image" : "/images/reserve/wing.jpeg"
     },
     {
       "id" : "37",
       "name" : "보드게임카페 홈즈앤루팡 강남점",
-      "address" : "서울 강남구 테헤란로1길 48 2층"
+      "address" : "서울 강남구 테헤란로1길 48 2층",
+      "image" : "/images/reserve/homeslupang.png"
     },
     {
       "id" : "38",
       "name" : "달무티 교대점",
-      "address" : "서울 서초구 서초대로58길 18 지에스타워 지하 1층 B02"
+      "address" : "서울 서초구 서초대로58길 18 지에스타워 지하 1층 B02",
+      "image" : "/images/reserve/dalmuti.png"
     },
     {
       "id" : "39",
       "name" : "울퍼보드게임카페",
-      "address" : "서울 송파구 백제고분로7길 24-17 2층"
+      "address" : "서울 송파구 백제고분로7길 24-17 2층",
+      "image" : "/images/reserve/ulper.jpeg"
     },
     {
       "id" : "40",
       "name" : "스몰월드 사당점",
-      "address" : "서울 관악구 과천대로 947 사당타워"
+      "address" : "서울 관악구 과천대로 947 사당타워",
+      "image" : "/images/reserve/smallworld.jpeg"
     },
     {
       "id" : "41",
       "name" : "다이스타운 보드게임카페",
-      "address" : "서울 강남구 봉은사로2길 37 3층 다이스타운"
+      "address" : "서울 강남구 봉은사로2길 37 3층 다이스타운",
+      "image" : "/images/reserve/dicetown.jpeg"
     },
     {
       "id" : "42",
       "name" : "플레이온보드게임카페 구디점",
-      "address" : "서울 구로구 디지털로32길 97-33"
+      "address" : "서울 구로구 디지털로32길 97-33",
+      "image" : "/images/reserve/playon.jpeg"
     },
     {
       "id" : "43",
       "name" : "더 벙커 보드게임카페",
-      "address" : "서울 동대문구 회기로21길 34 지층 더 벙커"
+      "address" : "서울 동대문구 회기로21길 34 지층 더 벙커",
+      "image" : "/images/reserve/thebunker.jpeg"
     },
     {
       "id" : "44",
       "name" : "하이힐",
-      "address" : "서울 용산구 보광로59길 36"
+      "address" : "서울 용산구 보광로59길 36",
+      "image" : "/images/reserve/hihill.jpeg"
     },
     {
       "id" : "45",
       "name" : "데블다이스 보드게임카페 강남3호점",
-      "address" : "서울 강남구 테헤란로1길 42 5층, 6층"
+      "address" : "서울 강남구 테헤란로1길 42 5층, 6층",
+      "image" : "/images/reserve/devildice.png"
     },
     {
       "id" : "46",
       "name" : "몬스터핸드 보드카페",
-      "address" : "서울 송파구 올림픽로8길 10 3층"
+      "address" : "서울 송파구 올림픽로8길 10 3층",
+      "image" : "/images/reserve/monsterhand.png"
     },
     {
       "id" : "47",
       "name" : "친구네놀이터",
-      "address" : "서울 마포구 잔다리로 19 3층"
+      "address" : "서울 마포구 잔다리로 19 3층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "48",
       "name" : "플렉스 보드게임카페",
-      "address" : "서울 종로구 종로 119 3층 FLEX 보드게임카페"
+      "address" : "서울 종로구 종로 119 3층 FLEX 보드게임카페",
+      "image" : "/images/reserve/flex.gif"
     },
     {
       "id" : "49",
       "name" : "롤링다이스",
-      "address" : "서울 마포구 동교로 193 동진빌딩"
+      "address" : "서울 마포구 동교로 193 동진빌딩",
+      "image" : "/images/reserve/rollingdice.png"
     },
     {
       "id" : "50",
       "name" : "보드게임카페 주사위왕국",
-      "address" : "서울 종로구 우정국로2길 42 5층 주사위왕국"
+      "address" : "서울 종로구 우정국로2길 42 5층 주사위왕국",
+      "image" : "/images/reserve/jusawiwangguk.jpeg"
     },
     {
       "id" : "51",
       "name" : "다이스라떼 보드게임카페와 코믹북",
-      "address" : "서울 동대문구 이문로 29 3층"
+      "address" : "서울 동대문구 이문로 29 3층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "52",
       "name" : "킹덤보드게임카페 신림점",
-      "address" : "서울 관악구 신림로59길 12 양지순대타운6층  킹덤보드게임 카페"
+      "address" : "서울 관악구 신림로59길 12 양지순대타운6층  킹덤보드게임 카페",
+      "image" : "/images/reserve/kingdom.png"
     },
     {
       "id" : "53",
       "name" : "디아날로그",
-      "address" : "서울 영등포구 영신로40길 5"
+      "address" : "서울 영등포구 영신로40길 5",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "54",
       "name" : "쿼즈 보드카페",
-      "address" : "서울 양천구 오목로 337-10 지하1층 2호"
+      "address" : "서울 양천구 오목로 337-10 지하1층 2호",
+      "image" : "/images/reserve/quads.jpeg"
     },
     {
       "id" : "55",
       "name" : "나인원 보드게임카페",
-      "address" : "서울 광진구 아차산로31길 28"
+      "address" : "서울 광진구 아차산로31길 28",
+      "image" : "/images/reserve/nineone.jpeg"
     },
     {
       "id" : "56",
       "name" : "펀보드게임카페",
-      "address" : "서울 강남구 선릉로86길 34 3층"
+      "address" : "서울 강남구 선릉로86길 34 3층",
+      "image" : "/images/reserve/fun.jpeg"
     },
     {
       "id" : "57",
       "name" : "빌보드게임카페",
-      "address" : "서울 마포구 양화로21길 17 2층"
+      "address" : "서울 마포구 양화로21길 17 2층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "58",
       "name" : "아발론 보드게임카페",
-      "address" : "서울 강북구 노해로8길 22 2층 210호"
+      "address" : "서울 강북구 노해로8길 22 2층 210호",
+      "image" : "/images/reserve/avalon.jpeg"
     },
     {
       "id" : "59",
       "name" : "알파고 보드게임카페 신도림점",
-      "address" : "서울 구로구 공원로6나길 12"
+      "address" : "서울 구로구 공원로6나길 12",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "60",
       "name": "스몰월드 이수점",
-      "address" : "서울 동작구 동작대로27가길 48 5층 스몰월드"
+      "address" : "서울 동작구 동작대로27가길 48 5층 스몰월드",
+      "image" : "/images/reserve/smallworld.jpeg"
     },
     {
       "id" : "61",
       "name" : "미플 보드게임",
-      "address" : "서울 동대문구 회기로 150 지하1층"
+      "address" : "서울 동대문구 회기로 150 지하1층",
+      "image" : "/images/reserve/miple.jpeg"
     },
     {
       "id" : "62",
       "name" : "데블다이스 보드게임카페 홍대점",
-      "address" : "서울 마포구 어울마당로 116 3층"
+      "address" : "서울 마포구 어울마당로 116 3층",
+      "image" : "/images/reserve/devildice.png"
     },
     {
       "id" : "63",
       "name" : "큐브 보드카페",
-      "address" : "서울 강남구 강남대로102길 16 4층 큐브보드카페"
+      "address" : "서울 강남구 강남대로102길 16 4층 큐브보드카페",
+      "image" : "/images/reserve/cube.jpeg"
     },
     {
       "id" : "64",
       "name" : "스테이보드카페",
-      "address" : "서울 강서구 화곡로58길 25"
+      "address" : "서울 강서구 화곡로58길 25",
+      "image" : "/images/reserve/stay.jpeg"
     },
     {
       "id" : "65",
       "name" : "보드게임 아지트",
-      "address" : "서울 영등포구 영중로 31 3층 보드게임아지트"
+      "address" : "서울 영등포구 영중로 31 3층 보드게임아지트",
+      "image" : "/images/reserve/azit.jpeg"
     },
     {
       "id" : "66",
       "name" : "아수라발발타",
-      "address" : "서울 마포구 마포대로4나길 7"
+      "address" : "서울 마포구 마포대로4나길 7",
+      "image" : "/images/reserve/asurabalbalta.jpeg"
     },
     {
       "id" : "67",
       "name" : "떼구르르 보드게임카페",
-      "address" : "서울 강북구 도봉로10길 22 4층"
+      "address" : "서울 강북구 도봉로10길 22 4층",
+      "image" : "/images/reserve/ddegurr.jpeg"
     },
     {
       "id" : "68",
       "name" : "위플미플보드게임카페",
-      "address" : "서울 강서구 화곡로27길 14 제 3층"
+      "address" : "서울 강서구 화곡로27길 14 제 3층",
+      "image" : "/images/reserve/wiplemiple.jpeg"
     },
     {
       "id" : "69",
       "name" : "데블다이스 보드게임카페 강남점",
-      "address" : "서울 강남구 테헤란로1길 29 4층 데블다이스"
+      "address" : "서울 강남구 테헤란로1길 29 4층 데블다이스",
+      "image" : "/images/reserve/devildice.png"
     },
     {
       "id" : "70",
       "name" : "세라비보드게임",
-      "address" : "서울 영등포구 영등포로50길 5 3층"
+      "address" : "서울 영등포구 영등포로50길 5 3층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "71",
       "name" : "옐로우미플",
-      "address" : "서울 마포구 연희로1길 45 3층"
+      "address" : "서울 마포구 연희로1길 45 3층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "72",
       "name" : "레이지클라우드",
-      "address" : "서울 동대문구 휘경로 5-1 7층"
+      "address" : "서울 동대문구 휘경로 5-1 7층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "73",
       "name" : "모나코",
-      "address" : "서울 중구 명동길 38 삼문빌딩 7층"
+      "address" : "서울 중구 명동길 38 삼문빌딩 7층",
+      "image" : "/images/reserve/monaco.jpeg"
     },
     {
       "id" : "74",
       "name" : "카페깔깔고블린",
-      "address" : "서울 마포구 동교로17안길 10 1층"
+      "address" : "서울 마포구 동교로17안길 10 1층",
+      "image" : "/images/reserve/goblin.png"
     },
     {
       "id" : "75",
       "name" : "보드스토리 보드게임카페 건대점",
-      "address" : "서울 광진구 동일로22길 104 진명빌딩"
+      "address" : "서울 광진구 동일로22길 104 진명빌딩",
+      "image" : "/images/reserve/boardgamestory.png"
     },
     {
       "id" : "76",
       "name" : "보드게임 101",
-      "address" : "서울 종로구 새문안로3길 23 경희궁의아침4단지 B2 107호"
+      "address" : "서울 종로구 새문안로3길 23 경희궁의아침4단지 B2 107호",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "77",
       "name" : "보드에바나나",
-      "address" : "서울 송파구 백제고분로45길 7 2층"
+      "address" : "서울 송파구 백제고분로45길 7 2층",
+      "image" : "/images/reserve/banana.jpeg"
     },
     {
       "id" : "78",
       "name" : "루시오 보드게임카페",
-      "address" : "서울 노원구 노해로83길 18-10 3층"
+      "address" : "서울 노원구 노해로83길 18-10 3층",
+      "image" : "/images/reserve/lusio.jpeg"
     },
     {
       "id" : "79",
       "name" : "보드스토리 천호점",
-      "address" : "서울 강동구 천호대로157길 17 3층 보드스토리"
+      "address" : "서울 강동구 천호대로157길 17 3층 보드스토리",
+      "image" : "/images/reserve/boardgamestory.png"
     },
     {
       "id" : "80",
       "name" : "고 보드카페",
-      "address" : "서울 강남구 언주로172길 60"
+      "address" : "서울 강남구 언주로172길 60",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "81",
       "name" : "치즈보드게임카페",
-      "address" : "서울 송파구 동남로 99 지하1층"
+      "address" : "서울 송파구 동남로 99 지하1층",
+      "image" : "/images/reserve/cheese.jpeg"
     },
     {
       "id" : "82",
       "name" : "꿀팟보드카페",
-      "address" : "서울 강서구 마곡중앙로 161-17 보타닉파크타워 지하1층 112호"
+      "address" : "서울 강서구 마곡중앙로 161-17 보타닉파크타워 지하1층 112호",
+      "image" : "/images/reserve/kkulpat.jpeg"
     },
     {
       "id" : "83",
       "name" : "스몰월드 서울대점",
-      "address" : "서울 관악구 관악로 168 2층 스몰월드 서울대점"
+      "address" : "서울 관악구 관악로 168 2층 스몰월드 서울대점",
+      "image" : "/images/reserve/smallworld.jpeg"
     },
     {
       "id" : "84",
       "name" : "보드놀이터 홍대본점",
-      "address" : "서울 마포구 홍익로 9-1 지하1층"
+      "address" : "서울 마포구 홍익로 9-1 지하1층",
+      "image" : "/images/reserve/noriter.jpeg"
     },
     {
       "id" : "85",
       "name" : "에이 보드게임 카페",
-      "address" : "서울 강남구 논현로161길 16"
+      "address" : "서울 강남구 논현로161길 16",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "86",
       "name" : "보드게임카페 갬성",
-      "address" : "서울 송파구 백제고분로41길 26 3층"
+      "address" : "서울 송파구 백제고분로41길 26 3층",
+      "image" : "/images/reserve/gaemseong.png"
     },
     {
       "id" : "87",
       "name" : "데블다이스 보드게임카페 신촌점",
-      "address" : "서울 서대문구 연세로5가길 1 계림빌딩 5층"
+      "address" : "서울 서대문구 연세로5가길 1 계림빌딩 5층",
+      "image" : "/images/reserve/devildice.png"
     },
     {
       "id" : "88",
       "name" : "메이드보드게임카페",
-      "address" : "서울 마포구 잔다리로 25 우신빌딩"
+      "address" : "서울 마포구 잔다리로 25 우신빌딩",
+      "image" : "/images/reserve/made.jpeg"
     },
     {
       "id" : "89",
       "name" : "토마토보드카페",
-      "address" :"서울 강남구 테헤란로43길 10 지하1층"
+      "address" :"서울 강남구 테헤란로43길 10 지하1층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "90",
       "name" : "레끄레오",
-      "address" : "서울 마포구 홍익로6길 27 4층"
+      "address" : "서울 마포구 홍익로6길 27 4층",
+      "image" : "/images/reserve/recreo.jpeg"
     },
     {
       "id" : "91",
       "name" : "엠제이보드게임장",
-      "address" :"서울 강서구 마곡중앙로 165 안강프라이빗타워 1차 3층 302~305호"
+      "address" :"서울 강서구 마곡중앙로 165 안강프라이빗타워 1차 3층 302~305호",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "92",
       "name" : "포퀸스보드카페 등촌점",
-      "address" : "서울 강서구 공항대로59가길 10 한울에이치벨리움 B-1 포퀸스 보드카페 등촌점"
+      "address" : "서울 강서구 공항대로59가길 10 한울에이치벨리움 B-1 포퀸스 보드카페 등촌점",
+      "image" : "/images/reserve/foqueens.png"
     },
     {
       "id" : "93",
       "name" : "에스 보드카페",
-      "address" : "서울 강남구 언주로172길 59 B1층"
+      "address" : "서울 강남구 언주로172길 59 B1층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "94",
       "name" : "홀스",
-      "address" : "서울 노원구 노해로81길 12-20 4층"
+      "address" : "서울 노원구 노해로81길 12-20 4층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "95",
       "name" : "보드게임카페클루",
-      "address" : "서울 은평구 응암로 168 지층"
+      "address" : "서울 은평구 응암로 168 지층",
+      "image" : "/images/reserve/clue.png"
     },
     {
       "id" : "96",
       "name" : "큐빅보드카페",
-      "address" : "서울 송파구 백제고분로7길 6-15 3층 금석빌딩 3층"
+      "address" : "서울 송파구 백제고분로7길 6-15 3층 금석빌딩 3층",
+      "image" : "/images/reserve/cubic.jpeg"
     },
     {
       "id" : "97",
       "name" : "올리브보드카페",
-      "address" : "서울 강남구 테헤란로64길 25 4층"
+      "address" : "서울 강남구 테헤란로64길 25 4층",
+      "image" : "/images/reserve/olive.jpeg"
     },
     {
       "id" : "98",
       "name" : "이수마장 앤 보드게임",
-      "address" : "서울 서초구 서초대로1길 15 진주빌딩 지하1층"
+      "address" : "서울 서초구 서초대로1길 15 진주빌딩 지하1층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "99",
       "name": "보드카페 아수라발발타",
-      "address" : "서울 강남구 테헤란로33길 13 서안빌딩 3층"
+      "address" : "서울 강남구 테헤란로33길 13 서안빌딩 3층",
+      "image" : "/images/reserve/asurabalbalta.jpeg"
     },
     {
       "id" : "100",
       "name" : "보드게임하자",
-      "address" : "서울 동작구 만양로14길 25"
+      "address" : "서울 동작구 만양로14길 25",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "101",
       "name" : "플레이보드카페",
-      "address" : "서울 영등포구 국제금융로 86 여의도롯데캐슬아이비 지하 1층 B115호"
+      "address" : "서울 영등포구 국제금융로 86 여의도롯데캐슬아이비 지하 1층 B115호",
+      "image" : "/images/reserve/playboard.jpeg"
     },
     {
       "id" : "102",
       "name" : "보드스쿨 홍대입구점",
-      "address" : "서울 마포구 어울마당로 118"
+      "address" : "서울 마포구 어울마당로 118",
+      "image" : "/images/reserve/boardschool.jpeg"
     },
     {
       "id" : "103",
       "name" : "구구즈보드게임카페",
-      "address" : "서울 금천구 시흥대로122길 24 2층"
+      "address" : "서울 금천구 시흥대로122길 24 2층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "104",
       "name" : "보드스쿨",
-      "address" : "서울 은평구 연서로29길 7 3층 보드스쿨"
+      "address" : "서울 은평구 연서로29길 7 3층 보드스쿨",
+      "image" : "/images/reserve/boardschool.jpeg"
     },
     {
       "id" : "105",
       "name" : "GG보드게임카페",
-      "address" : "서울 강서구 강서로 24 4층"
+      "address" : "서울 강서구 강서로 24 4층",
+      "image" : "/images/reserve/ggboard.jpeg"
     },
     {
       "id" : "106",
       "name" : "보드게임카페로직",
-      "address" : "서울 성북구 고려대로24길 36"
+      "address" : "서울 성북구 고려대로24길 36",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "107",
       "name" : "펀타임 대학로지점",
-      "address" : "서울 종로구 대명길 24 성진빌딩"
+      "address" : "서울 종로구 대명길 24 성진빌딩",
+      "image" : "/images/reserve/funtime.jpeg"
     },
     {
       "id" : "108",
       "name" : "라스 보드카페",
-      "address" : "서울 강남구 언주로172길 36 지하1층"
+      "address" : "서울 강남구 언주로172길 36 지하1층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "109",
       "name" : "펀타임 보드게임카페",
-      "address" : "서울 강남구 테헤란로1길 17 3층"
+      "address" : "서울 강남구 테헤란로1길 17 3층",
+      "image" : "/images/reserve/funtime.jpeg"
     },
     {
       "id" : "110",
       "name" : "플레이보드",
-      "address" : "서울 성북구 동소문로22길 30"
+      "address" : "서울 성북구 동소문로22길 30",
+      "image" : "/images/reserve/playboard.jpeg"
     },
     {
       "id" : "111",
       "name" : "보드스쿨 신촌점",
-      "address" : "서울 서대문구 연세로7길 14"
+      "address" : "서울 서대문구 연세로7길 14",
+      "image" : "/images/reserve/boardschool.jpeg"
     },
     { 
       "id" : "112",
       "name" : "레드다이스",
-      "address" : "서울 종로구 창경궁로29길 25 명륜빌딩 명륜빌딩 2층 202호"
+      "address" : "서울 종로구 창경궁로29길 25 명륜빌딩 명륜빌딩 2층 202호",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "113",
       "name" : "마이턴 보드게임 카페",
-      "address" : "서울 서대문구 연세로5가길 8-6 3층"
+      "address" : "서울 서대문구 연세로5가길 8-6 3층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "114",
       "name" : "미르보드카페 서울대점",
-      "address" : "서울 관악구 신림로11길 13 2층"
+      "address" : "서울 관악구 신림로11길 13 2층",
+      "image" : "/images/reserve/mir.jpeg"
     },
     {
       "id" : "115",
       "name" : "미르보드카페 중앙대점",
-      "address" : "서울 동작구 흑석로 81-6 지하1층"
+      "address" : "서울 동작구 흑석로 81-6 지하1층",
+      "image" : "/images/reserve/mir.jpeg"
     },
     {
       "id" : "116",
       "name" : "보드카페아쿠아",
-      "address" : "서울 영등포구 여의대방로51길 13"
+      "address" : "서울 영등포구 여의대방로51길 13",
+      "image" : "/images/reserve/aqua.jpeg"
     },
     {
       "id" : "117",
       "name" : "킹보드카페",
-      "address" : "서울 영등포구 여의대방로 379 제일빌딩 3층 310호 킹카페"
+      "address" : "서울 영등포구 여의대방로 379 제일빌딩 3층 310호 킹카페",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "118",
       "name" : "미아듀얼카페",
-      "address" : "서울 강북구 도봉로13길 58 대암빌딩 2층"
+      "address" : "서울 강북구 도봉로13길 58 대암빌딩 2층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "119",
       "name" : "엣지커피",
-      "address" : "서울 서대문구 거북골로 29"
+      "address" : "서울 서대문구 거북골로 29",
+      "image" : "/images/reserve/edgecoffee.jpeg"
     },
     {
       "id" : "120",
       "name" : "데블다이스 보드게임카페 강남대로점",
-      "address" : "서울 강남구 강남대로 428 만이빌딩 3층"
+      "address" : "서울 강남구 강남대로 428 만이빌딩 3층",
+      "image" : "/images/reserve/devildice.png"
     },
     {
       "id" : "121",
       "name" : "텍사스",
-      "address" : "서울 성동구 마조로1가길 11 지하"
+      "address" : "서울 성동구 마조로1가길 11 지하",
+      "image" : "/images/reserve/texas.jpeg"
     },
     {
       "id" : "122",
       "name" : "보드스쿨 강남점",
-      "address" : "서울 강남구 테헤란로1길 16"
+      "address" : "서울 강남구 테헤란로1길 16",
+      "image" : "/images/reserve/boardschool.jpeg"
     },
     {
       "id" : "123",
       "name" : "슈퍼보드",
-      "address" : "서울 성북구 동소문로20길 29-17"
+      "address" : "서울 성북구 동소문로20길 29-17",
+      "image" : "/images/reserve/superboard.jpeg"
     },
     {
       "id" : "124",
       "name" : "달콤한상상",
-      "address" : "서울 양천구 신월로38길 12 2층"
+      "address" : "서울 양천구 신월로38길 12 2층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "125",
       "name" : "보드스쿨 신림점",
-      "address" : "서울 관악구 신림로59길 15-12"
+      "address" : "서울 관악구 신림로59길 15-12",
+      "image" : "/images/reserve/boardschool.jpeg"
     },
     {
       "id" : "126",
       "name" : "밸류보드카페",
-      "address" : "서울 마포구 새창로 40 보광빌딩 4층"
+      "address" : "서울 마포구 새창로 40 보광빌딩 4층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "127",
       "name" : "크림보드카페",
-      "address" : "서울 강남구 도산대로49길 13 SMART EXCHANGE"
+      "address" : "서울 강남구 도산대로49길 13 SMART EXCHANGE",
+      "image" : "/images/reserve/cream.jpeg"
     },
     {
       "id" : "128",
       "name" : "플레이보드카페",
-      "address" : "서울 영등포구 국제금융로 86 115호"
+      "address" : "서울 영등포구 국제금융로 86 115호",
+      "image" : "/images/reserve/playboard.jpeg"
     },
     {
       "id" : "129",
       "name" : "NINE 보드게임카페",
-      "address" : "서울 강동구 천호대로157길 15 4층"
+      "address" : "서울 강동구 천호대로157길 15 4층",
+      "image" : "/images/reserve/nine.jpeg"
     },
     {
       "id" : "130",
       "name" : "포퀸스보드카페3층별관",
-      "address" : "서울 강서구 마곡동로 62 3층"
+      "address" : "서울 강서구 마곡동로 62 3층",
+      "image" : "/images/reserve/foqueens.png"
     },
     {
       "id" : "131",
       "name" : "큐브",
-      "address" : "서울 양천구 목동로25길 16"
+      "address" : "서울 양천구 목동로25길 16",
+      "image" : "/images/reserve/cube.jpeg"
     },
     {
       "id" : "132",
       "name" : "보드게임카페 펀타임",
-      "address" : "서울 서대문구 명물길 6"
+      "address" : "서울 서대문구 명물길 6",
+      "image" : "/images/reserve/funtime.jpeg"
     },
     {
       "id" : "133",
       "name" : "길보드게임카페",
-      "address" : "서울 서초구 서래로5길 17 연우빌딩"
+      "address" : "서울 서초구 서래로5길 17 연우빌딩",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "134",
       "name" : "보드게임카페 슈퍼보드",
-      "address" : "서울 마포구 어울마당로 98"
+      "address" : "서울 마포구 어울마당로 98",
+      "image" : "/images/reserve/superboard.jpeg"
     },
     {
       "id" : "135",
       "name" : "보드스쿨",
-      "address" : "서울 종로구 대학로 143 3층 보드스쿨"
+      "address" : "서울 종로구 대학로 143 3층 보드스쿨",
+      "image" : "/images/reserve/boardschool.jpeg"
     },
     {
       "id" : "136",
       "name" : "탁상공론",
-      "address" : "서울 동작구 상도로 58"
+      "address" : "서울 동작구 상도로 58",
+      "image" : "/images/reserve/taksang.jpeg"
     },
     {
       "id" : "137",
       "name" : "비앤비 보드카페",
-      "address" : "서울 강서구 마곡중앙6로 89 뉴골든타워 302,303호"
+      "address" : "서울 강서구 마곡중앙6로 89 뉴골든타워 302,303호",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "138",
       "name" : "대니 보드게임카페",
-      "address" : "서울 관악구 남부순환로266길 6 지하 대니보드게임카페"
+      "address" : "서울 관악구 남부순환로266길 6 지하 대니보드게임카페",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "139",
       "name" : "브이보드카페",
-      "address" : "서울 강남구 압구정로50길 11 , 남송빌딩 지하1층"
+      "address" : "서울 강남구 압구정로50길 11 , 남송빌딩 지하1층",
+      "image" : "/images/reserve/vi.jpeg"
     },
     {
       "id" : "140",
       "name" : "302호보드게임",
-      "address" : "서울 마포구 양화로 157 파라다이스텔 302호"
+      "address" : "서울 마포구 양화로 157 파라다이스텔 302호",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "141",
       "name" : "더블유보드카페",
-      "address" : "서울 강남구 언주로134길 9 엘림빌딩 지하1층"
+      "address" : "서울 강남구 언주로134길 9 엘림빌딩 지하1층",
+      "image" : "/images/reserve/doubleu.jpeg"
     },
     {
       "id" : "142",
       "name" : "VIP 보드카페",
-      "address" : "서울 강남구 언주로172길 55 지하1층"
+      "address" : "서울 강남구 언주로172길 55 지하1층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "143",
       "name" : "보드스쿨 강남역점",
-      "address" : "서울 서초구 서초대로77길 9 누드존빌딩 602호"
+      "address" : "서울 서초구 서초대로77길 9 누드존빌딩 602호",
+      "image" : "/images/reserve/boardschool.jpeg"
     },
     {
       "id" : "144",
       "name" : "청소년카페똥꼬다락방",
-      "address" : "서울 강동구 동남로65길 12 1층"
+      "address" : "서울 강동구 동남로65길 12 1층",
+      "image" : "/images/reserve/boardschool.jpeg"
     },
     {
       "id" : "145",
       "name" : "게임아카이브",
-      "address" : "서울 서초구 효령로23길 45 리츠빌 101호"
+      "address" : "서울 서초구 효령로23길 45 리츠빌 101호",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "146",
       "name" : "투썸보드카페",
-      "address" : "서울 동작구 상도로 59"
+      "address" : "서울 동작구 상도로 59",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "147",
       "name" : "세븐다이스 보드게임카페",
-      "address" : "서울 강북구 삼양로 169 3층"
+      "address" : "서울 강북구 삼양로 169 3층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "148",
       "name" : "꼬꼬지 보드게임",
-      "address" :"서울 강남구 강남대로 428 만이빌딩 3층"
+      "address" :"서울 강남구 강남대로 428 만이빌딩 3층",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     { 
       "id" : "149",
       "name" : "더블업보드게임",
-      "address" : "서울 송파구 백제고분로7길 16 지하1층"
+      "address" : "서울 송파구 백제고분로7길 16 지하1층",
+      "image" : "/images/reserve/doubleup.jpeg"
     },
     {
       "id" : "150",
       "name" : "드로우",
-      "address" : "서울 송파구 석촌호수로 284 지하 105호"
+      "address" : "서울 송파구 석촌호수로 284 지하 105호",
+      "image" : "/images/reserve/nologo.jpeg"
     },
     {
       "id" : "151",
       "name" : "슈퍼보드 홍대점",
-      "address" : "서울 마포구 홍익로5안길 14"
+      "address" : "서울 마포구 홍익로5안길 14",
+      "image" : "/images/reserve/superboard.jpeg"
     },
     {
       "id" : "152",
       "name" : "보드패밀리",
-      "address" : "서울 서대문구 백련사길 39 서대문문화체육회관 지하2층 서대문여성이룸센터"
+      "address" : "서울 서대문구 백련사길 39 서대문문화체육회관 지하2층 서대문여성이룸센터",
+      "image" : "/images/reserve/nologo.jpeg"
     }
 ]

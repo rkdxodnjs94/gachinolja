@@ -44,10 +44,10 @@ function Header(){
       { login === true 
       ? <Login fade={fade}/>
       : null }
-      <div className='container-fluid d-flex border header'>
+      <div className='container-fluid d-flex header'>
         <div className='d-flex text-center ms-5'>
           <div role='button' onClick={()=>{navigate('/');}}>
-            <img src='/images/logo_test.png' style={{width:'250px', height:'190px'}}/>
+            <img src='/images/logo.png' style={{width:'200px', height:'200px'}}/>
           </div>
           <div className="d-flex stroke align-items-center">
             <div className='d-flex menu'>
@@ -85,10 +85,10 @@ function Header(){
               </div>
             </div>
           { islogin.nickname || googleuser.email || facebookuser.email || naveruser.email
-          ? <div className='menu col-2 border p-4 user' 
+          ? <div className='col-2 border p-4 user' 
           onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>
               {islogin.nickname || googleuser.name || facebookuser.name || naveruser.name}님 환영합니다!!
-              <div role='button' className="submenu menu1 px-2" onClick={(e)=>{
+              <div role='button' className="px-2" onClick={(e)=>{
                 e.stopPropagation(); logout();}}>
                 로그아웃</div>
           </div>
@@ -105,10 +105,10 @@ function Header(){
 
 function Slide(){
   const jb = jQuery.noConflict();
-  jb('.submenu').stop().slideDown(400);
+  jb('.submenu').stop().slideDown(280);
   jb('.submenu').css('display','block');
   jb('.menu > .menu1').mouseout(function(){
-    jb('.submenu').stop().slideUp(400);
+    jb('.submenu').stop().slideUp(280);
   });
 }
 

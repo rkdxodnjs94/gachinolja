@@ -33,7 +33,7 @@ function Search(){
         : filtered.map((itemlist) => {
           return <Col key={itemlist.id}>
           <Card onClick={()=>{ navigate('/reserve2/' + itemlist.id)}} style={{cursor : 'pointer'}}>
-          <Card.Img variant="top" src="holder.js/100px160" />
+          <Card.Img variant="top" src={revdata[itemlist.id-1].image} height='250' />
           <Card.Body>
             <Card.Title className='cardname'>{ itemlist.name }</Card.Title>
             <Card.Text className='cardaddress'>

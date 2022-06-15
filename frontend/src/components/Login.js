@@ -172,11 +172,11 @@ function Login(props){
           {/* 네이버 Oauth */}
           <div id="naverIdLogin" style={{position: 'absolute', left:'-10000px'}} />
           <div onClick={handleNaverClick} style={{cursor : 'pointer'}}>
-            <img src='/images/naverbutton.png' height='55' />
+            <img src='/images/login/naverbutton.png' height='55' />
           </div>
           {/* 카카오톡 Oauth */}
           <div>
-            <img src='/images/kakaobutton.png' height='55' />
+            <img src='/images/login/kakaobutton.png' height='55' />
           </div>
           {/* 페이스북 Oauth */}
           <FacebookLogin
@@ -194,14 +194,14 @@ function Login(props){
             }}
             render={renderProps => (
               <div onClick={renderProps.onClick} style={{cursor:'pointer'}}>
-                <img src='/images/facebookbutton.png' height='55' />
+                <img src='/images/login/facebookbutton.png' height='55' />
               </div>
             )}
           />
           {/* 구글 Oauth */}
           <div id='signInDiv' style={{position: 'absolute', bottom:'-10000px'}} />
           <div onClick={handleGoogleClick} style={{cursor : 'pointer'}}>
-            <img src='/images/googlebutton.png' height='60' />
+            <img src='/images/login/googlebutton.png' height='60' />
           </div>
           <div role='button' className='container text-center' onClick={(e)=>{
             e.stopPropagation();

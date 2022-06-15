@@ -16,7 +16,7 @@ function EventList(){
               <Card border='light' style={{ width: '55rem' }}>
                 <Row>
                   <Col>
-                    <Card.Img variant="top" src="/images/card/photo1.jpeg" />
+                    <Card.Img variant="top" src="/images/carousel/banner1.png" />
                   </Col>
                   <Col>
                     <Card.Body>

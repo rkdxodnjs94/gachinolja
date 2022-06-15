@@ -15,7 +15,7 @@ function ImgSlide(){
       <Carousel.Item interval={3000}>
         <img
         className="d-block w-100"
-        src="/images/carousel/banner2.png"
+        src="/images/carousel/banner2.jpeg"
         alt="Second slide"
         style={{maxWidth: '1300px', maxHeight: '555px'}}
         />
@@ -24,7 +24,7 @@ function ImgSlide(){
       <Carousel.Item interval={3000}>
         <img
         className="d-block w-100"
-        src="/images/carousel/banner3.png"
+        src="/images/carousel/banner3.jpeg"
         alt="Third slide"
         style={{maxWidth: '1300px', maxHeight: '555px'}}
         />
