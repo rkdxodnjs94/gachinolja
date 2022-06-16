@@ -11,11 +11,13 @@ import Party from '../pages/Party/Party';
 import RecruitParty from '../pages/Party/RecruitParty';
 import ReadParty from '../pages/Party/ReadParty';
 // page경로(보드게임페이지)
-import BoardGame from '../pages/BoardGame';
+import BoardGame from '../pages/BoardGame/BoardGame';
 // page경로(문의페이지)
 import Inquiry from '../pages/Inquiry/Inquiry';
 import EventList from '../pages/Inquiry/EventList';
 import NoticeList from '../pages/Inquiry/NoticeList';
+import NoticeDetail from '../pages/Inquiry/NoticeDetail';
+import DetailGame from '../pages/BoardGame/DetailGame';
 // page경로(회원가입)
 import SignUp from '../pages/SignUp';
 
@@ -29,9 +31,11 @@ function App() {
       <Route path='/party/:id' element={<ReadParty />} />
       <Route path='/party/recruit' element={<RecruitParty />} />
       <Route path='/boardgame' element={<BoardGame />} />
+      <Route path='/boardgame/:id' element={<DetailGame />} />
       <Route path='/inquiry' element={<Inquiry />} />
       <Route path='/event' element={<EventList />} />
       <Route path='/notice' element={<NoticeList />} />
+      <Route path='/notice/:id' element={<NoticeDetail />} />
       <Route path='/signup' element={<SignUp />} />
     </Routes>
   );

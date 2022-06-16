@@ -2,8 +2,30 @@ import React from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { Table, Container } from 'react-bootstrap';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import moment from 'moment';
 
 function NoticeList(){
+
+  const navigate = useNavigate();
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function axiosdata(){
+      try {
+        const response = await axios.get('/api/notice');
+        for (let i=0; i<response.data?.length; i++) {
+          setData(response.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  axiosdata();
+  },[setData]);
+  
   return (
     <>
       <Header />
@@ -20,12 +42,17 @@ function NoticeList(){
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className='text-center'>1</td>
-              <td className='text-center'>첫번째 공지사항</td>
-              <td className='text-center'>2022-05-24</td>
-              <td className='text-center'>1</td>
-            </tr>
+            {
+              (Object.values(data)).map((data)=>{
+                return <tr className='border-dark border-bottom' key={data.no}>
+                  <td className='text-center py-2'>{data.no}</td>
+                  <td className='text-center' style={{cursor : 'pointer'}}
+                  onClick={()=>{ navigate('/notice/'+data._id);}}>{data.title}</td>
+                  <td className='text-center'>{moment(data.date).format('YYYY-MM-DD')}</td>
+                  <td className='text-center'>{data?.views}</td>
+                </tr>
+              })
+            }
           </tbody>
         </Table>
       </div>

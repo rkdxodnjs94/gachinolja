@@ -70,7 +70,8 @@ function ReadParty(){
                 </Col>
                 <Col md={6}>
                 <Form.Control
-                  className='mb-3 w-25'
+                  className='mb-3'
+                  style={{width:'100px'}}
                   type="text"
                   placeholder={data?.data[0]?.people}
                   aria-label="모집인원"

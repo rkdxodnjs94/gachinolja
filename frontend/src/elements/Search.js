@@ -2,6 +2,7 @@ import { InputGroup, FormControl, Button, Card, Row, Col } from 'react-bootstrap
 import { useDispatch, useSelector } from 'react-redux';
 import { setInput } from '../stores/InputSlice';
 import { useNavigate } from 'react-router-dom';
+import './Search.css';
 
 function Search(){
   
@@ -17,16 +18,15 @@ function Search(){
   });
   return (
   <>
-    <InputGroup className="container mb-3 w-50" style={{height:'50px'}}>
+    <InputGroup className="container searchbar" style={{height:'58px'}}>
+      <img src='/images/reserve/search/search.png' height='35' />
       <FormControl
       placeholder="예약할 장소를 입력해보세요"
       aria-label="예약장소"
       aria-describedby="basic-addon2"
       onChange={handleInput}
+      className='searchicon'
       />
-      <Button variant="outline-success" id="button-addon2">
-        검색
-      </Button>
     </InputGroup>
     <Row xs={1} md={3} className="g-4 p-5">
       { input === '' ? null

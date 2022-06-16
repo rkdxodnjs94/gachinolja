@@ -83,17 +83,11 @@ function Login(props){
 
     google.accounts.id.renderButton(
       document.getElementById("signInDiv"),
-      { theme : "outline", size : "large"}
+      { type: "icon", theme : "outline", shape : "circle", size : "large"}
     );
 
     google.accounts.id.prompt();
   },[]);
-  // 로그인 유저가 없을 때 : 로그인 버튼
-  // 로그인 유저가 있을 때 : 로그아웃 버튼
-  const handleGoogleClick = () => {
-    const loginbtn = document.getElementById('signInDiv');
-    loginbtn.click();
-  }
  
   // 네이버 oauth
   const initializeNaverLogin = () => {
@@ -166,50 +160,50 @@ function Login(props){
               로그인
             </Button>
           </div>
-          <div className='line'>
+          <div className='line mb-3'>
             또는
           </div>
-          {/* 네이버 Oauth */}
-          <div id="naverIdLogin" style={{position: 'absolute', left:'-10000px'}} />
-          <div onClick={handleNaverClick} style={{cursor : 'pointer'}}>
-            <img src='/images/login/naverbutton.png' height='55' />
+          <div className='d-flex justify-content-evenly mb-5'>
+            {/* 네이버 Oauth */}
+            <div id="naverIdLogin" style={{position: 'absolute', top:'-10000px'}} />
+            <div onClick={handleNaverClick} style={{cursor : 'pointer'}}>
+              <img src='/images/login/naverbutton.png' height='40' />
+            </div>
+            {/* 카카오톡 Oauth */}
+            <div>
+              <img src='/images/login/kakaobutton.png' height='40' />
+            </div>
+            {/* 페이스북 Oauth */}
+            <FacebookLogin
+              appId={facebookAPIKey}
+              onFail={(error) => {
+                console.log('Login Failed!');
+                console.log('status: ', error.status);
+              }}
+              onProfileSuccess={(response) => {
+                console.log('Get Profile Success!');
+                console.log('response: ', response);
+                dispatch(setFacebookUser(response));
+                navigate('/');
+                setCancel(true);
+                dispatch(setLogin(false));
+              }}
+              render={renderProps => (
+                <div onClick={renderProps.onClick} style={{cursor:'pointer'}}>
+                  <img src='/images/login/facebookbutton.png' height='40' />
+                </div>
+              )}
+            />
+            {/* 구글 Oauth */}
+            <div id='signInDiv' />
           </div>
-          {/* 카카오톡 Oauth */}
-          <div>
-            <img src='/images/login/kakaobutton.png' height='55' />
-          </div>
-          {/* 페이스북 Oauth */}
-          <FacebookLogin
-            appId={facebookAPIKey}
-            onFail={(error) => {
-              console.log('Login Failed!');
-              console.log('status: ', error.status);
-            }}
-            onProfileSuccess={(response) => {
-              console.log('Get Profile Success!');
-              console.log('response: ', response);
-              dispatch(setFacebookUser(response));
-              navigate('/');
-              setCancel(true);
-            }}
-            render={renderProps => (
-              <div onClick={renderProps.onClick} style={{cursor:'pointer'}}>
-                <img src='/images/login/facebookbutton.png' height='55' />
-              </div>
-            )}
-          />
-          {/* 구글 Oauth */}
-          <div id='signInDiv' style={{position: 'absolute', bottom:'-10000px'}} />
-          <div onClick={handleGoogleClick} style={{cursor : 'pointer'}}>
-            <img src='/images/login/googlebutton.png' height='60' />
-          </div>
-          <div role='button' className='container text-center' onClick={(e)=>{
-            e.stopPropagation();
-            dispatch(setLogin(false));
-            navigate('/signup');
-          }}>
-            회원이 아니십니까? 회원가입
-          </div>
+            <div role='button' className='container text-center' onClick={(e)=>{
+              e.stopPropagation();
+              dispatch(setLogin(false));
+              navigate('/signup');
+            }}>
+              회원이 아니십니까? <span style={{fontSize : '20px', color: 'blue'}}>회원가입</span>
+            </div>
         </div>
       </div> 
       }

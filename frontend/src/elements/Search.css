@@ -1,0 +1,21 @@
+.searchbar {
+  width: 510px;
+  height: 27px;
+  border-radius: 40px;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  opacity: 1;
+}
+
+.searchicon {
+  width: 50px;
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 40px;
+  margin-left: 20px;
+  overflow: auto;
+  font-size: 15px;
+}
