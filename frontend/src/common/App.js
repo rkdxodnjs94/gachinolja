@@ -16,6 +16,7 @@ import BoardGame from '../pages/BoardGame/BoardGame';
 import Inquiry from '../pages/Inquiry/Inquiry';
 import EventList from '../pages/Inquiry/EventList';
 import NoticeList from '../pages/Inquiry/NoticeList';
+import NoticePost from '../pages/Inquiry/NoticePost';
 import NoticeDetail from '../pages/Inquiry/NoticeDetail';
 import DetailGame from '../pages/BoardGame/DetailGame';
 // page경로(회원가입)
@@ -35,6 +36,7 @@ function App() {
       <Route path='/inquiry' element={<Inquiry />} />
       <Route path='/event' element={<EventList />} />
       <Route path='/notice' element={<NoticeList />} />
+      <Route path='/notice/post' element={<NoticePost />} />
       <Route path='/notice/:id' element={<NoticeDetail />} />
       <Route path='/signup' element={<SignUp />} />
     </Routes>

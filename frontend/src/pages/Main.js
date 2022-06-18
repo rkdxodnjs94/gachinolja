@@ -8,7 +8,7 @@ function Main() {
   return (
     <>
       <Header />
-      <ImgSlide />
+        <ImgSlide />
       <IntroCompany />
       <Footer />
     </>

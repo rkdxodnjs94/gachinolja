@@ -50,7 +50,6 @@ function Login(props){
       });
       // async await 구문 안쓸시 : response.then((data) => { dispatch(loginNICK(data.data.nickname)) });
       dispatch(loginNICK(response.data.nickname));
-      alert('로그인 성공!');
       navigate('/');
       setCancel(true);
       dispatch(setLogin(false));

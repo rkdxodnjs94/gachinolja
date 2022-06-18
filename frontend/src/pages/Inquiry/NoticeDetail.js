@@ -50,7 +50,15 @@ function NoticeDetail(){
             {data?.data?.title}
             </div>
             <div style={{width:'100vw', height:'50vh'}}>
-              {data?.data?.content}
+              {data?.data?.content.split('\n').map((line)=>{
+              return (
+              <>
+                {line}
+                <br/>
+              </>
+              )
+            })
+            }
             </div>
             <div className="h4 pb-2 mb-4 text-warning border-bottom border-secondary border-opacity-25"
             style={{width: '50vw'}}></div>

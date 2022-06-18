@@ -2,7 +2,7 @@
 
 function Footer(){
   return (
-    <div className="container-fluid p-3 bg-light text-center">
+    <div className="container-fluid p-3 bg-light text-center" style={{marginTop : '150px'}}>
       <div className="row gx-5">
         <div className="col">
           <div className="p-3">

@@ -76,7 +76,7 @@ function ModalReserve(props){
               </Form.Select>
             </Row>
             <br/>
-            <RevModal datevalue={props.value} person={person} time={time}/> 
+            <RevModal datevalue={props.value} person={person} time={time} render={props.render} setRender={props.setRender}/> 
           </Col>
         </Row>
       </Container>

@@ -1,7 +1,8 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Search from "../elements/Search";
-import { Card, Row, Col, Pagination } from 'react-bootstrap';
+import RevPageNum from "../elements/RevPageNum";
+import { Card, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -14,9 +15,8 @@ function Reserve1(){
   const revdata = useSelector((state) => { return state.revdata });
   const input = useSelector((state) => { return state.input });
   const [page, setPage] = useState(1);
-  const [limit] = useState(12);
+  const limit = 12;
   const offset = (page - 1) * limit;
-  const numPages = Math.ceil( (revdata.length) / limit );
   // 페이지 끝날 때
   useEffect(() => {
     return () => {
@@ -46,23 +46,7 @@ function Reserve1(){
           ))
         }
         </Row>
-        <Row>
-          <Col md={{ span: 3, offset: 3 }}>
-            <Pagination>
-              <Pagination.Prev onClick={()=>{setPage(page-1)}} disabled={page === 1}/>
-              {Array(numPages).fill().map((_, i) => {
-              return <Pagination.Item
-                key={i+1} 
-                onClick={()=>{setPage(i+1)}}
-                aria-current={ page === (i+1) ? "page" : null}
-              >
-                {i+1}
-              </Pagination.Item>
-              })}
-              <Pagination.Next onClick={()=>setPage(page+1)} disabled={page === numPages}/>
-            </Pagination>
-          </Col>
-        </Row>
+        <RevPageNum page={page} setPage={setPage} limit={limit} revdata={revdata} />
       
       </div>
       <Footer />

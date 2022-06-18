@@ -1,6 +1,6 @@
 // 자리 데이터를 저장하는 state입니다.
 // 초기 state : []
-// 수정 state : [1,2,...]
+// 수정 state : [arrage,publisherID,Date]
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [];

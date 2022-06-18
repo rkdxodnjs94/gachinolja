@@ -30,15 +30,12 @@ function ArragePlace(props){
         console.log(error);
       }
     }
-  axiosdata();
-  },[dispatch]);
-
-  // 페이지 끝날 때
-  useEffect(() => {
+    axiosdata();
     return () => {
       dispatch(clear());
     }
-  },[]);
+  },[dispatch, props.render]);
+
 
   return (
     <Suspense fallback={<h1>로딩중입니당</h1>}>

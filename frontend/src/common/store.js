@@ -14,6 +14,8 @@ import input from '../stores/InputSlice';
 import revdata from '../stores/RevDataSlice';
 // Fade state용
 import fade from '../stores/FadeSlice';
+// Render용
+import render from '../stores/RenderSlice';
 
 export default configureStore({
   reducer : {
@@ -27,6 +29,7 @@ export default configureStore({
     savereserve : savereserve.reducer,
     revdata : revdata.reducer,
     fade : fade.reducer,
+    render : render.reducer
   },
   middleware: (getDefaultMiddleware) =>
   getDefaultMiddleware({

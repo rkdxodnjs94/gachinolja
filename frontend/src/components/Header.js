@@ -29,7 +29,6 @@ function Header(){
   const logout = () => {
     try {
       const response = axios.post('/api/user/logout');
-      alert('로그아웃 성공!');
       dispatch(setGoogleUser(''));
       dispatch(setFacebookUser(''));
       dispatch(setNaverUser(''));

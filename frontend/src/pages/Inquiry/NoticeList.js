@@ -1,14 +1,16 @@
 import React from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-import { Table, Container } from 'react-bootstrap';
+import { Table, Container, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
+import { useSelector } from 'react-redux';
 
 function NoticeList(){
 
+  const islogin = useSelector((state) => { return state.islogin });
   const navigate = useNavigate();
   const [data, setData] = useState([]);
 
@@ -33,31 +35,38 @@ function NoticeList(){
       <h1 className='p-5'>공지사항</h1>
         <div className='px-5'>
           <Table responsive="sm">
-          <thead>
-            <tr className='text-center'>
-              <th>No</th>
-              <th>제목</th>
-              <th>작성일</th>
-              <th>조회수</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              (Object.values(data)).map((data)=>{
-                return <tr className='border-dark border-bottom' key={data.no}>
-                  <td className='text-center py-2'>{data.no}</td>
-                  <td className='text-center' style={{cursor : 'pointer'}}
-                  onClick={()=>{ navigate('/notice/'+data._id);}}>{data.title}</td>
-                  <td className='text-center'>{moment(data.date).format('YYYY-MM-DD')}</td>
-                  <td className='text-center'>{data?.views}</td>
-                </tr>
-              })
-            }
-          </tbody>
-        </Table>
-      </div>
-    </Container>
-    <Footer />
+            <thead>
+              <tr className='text-center'>
+                <th>No</th>
+                <th>제목</th>
+                <th>작성일</th>
+                <th>조회수</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                (Object.values(data)).map((data)=>{
+                  return <tr className='border-dark border-bottom' key={data.no}>
+                    <td className='text-center py-2'>{data.no}</td>
+                    <td className='text-center' style={{cursor : 'pointer'}}
+                    onClick={()=>{ navigate('/notice/'+data._id);}}>{data.title}</td>
+                    <td className='text-center'>{moment(data.date).format('YYYY-MM-DD')}</td>
+                    <td className='text-center'>{data?.views}</td>
+                  </tr>
+                })
+              }
+            </tbody>
+          </Table>
+          {
+            islogin.nickname === '관리자'
+          ? <div className='mb-4 mt-4 me-4 d-flex justify-content-end'>
+            <Button onClick={()=>{navigate('/notice/post')}}>작성하기</Button>
+          </div>
+          : null
+          }
+        </div>
+      </Container>
+      <Footer />
     </>
   )
 }

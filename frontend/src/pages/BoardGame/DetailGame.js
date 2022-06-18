@@ -4,7 +4,7 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { useParams } from 'react-router-dom';
 
-function DetailGame(props){
+function DetailGame(){
 
   const [data, setData] = useState([]);
   const { id } = useParams();
@@ -13,7 +13,7 @@ function DetailGame(props){
     async function axiosdata(){
       try {
         const response = await axios.get('/api/boardgame/'+id);
-        setData(response.data);
+        setData(response?.data);
       } catch (error) {
         console.log(error);
       }
@@ -24,8 +24,8 @@ function DetailGame(props){
   return (
     <>
       <Header />
-      <div className='container p-4'>
-        <img src={data.image_detail} />
+      <div className='container px-5'>
+        <img src={data?.images_detail} style={{width : '100%'}}/>
       </div>
       <Footer />
     </>
