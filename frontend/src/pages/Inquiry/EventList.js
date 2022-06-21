@@ -44,7 +44,7 @@ function EventList(){
               <td className='container text-center border-bottom border-top border-dark'>
               { data.map((data, i) => {
                 return <Card border='light' style={{ width: '55rem' }} key={i}>
-                <Row onClick={()=>navigate(`/event/${data._id}`)} style={{cursor:'pointer'}}>
+                <Row onClick={()=>navigate(`/event/${i+1}`)} style={{cursor:'pointer'}}>
                   <Col>
                     <Card.Img variant="top" src={data?.image} width='500' height='200' />
                   </Col>

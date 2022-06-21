@@ -16,6 +16,7 @@ import DetailGame from '../pages/BoardGame/DetailGame';
 // page경로(문의페이지)
 import Inquiry from '../pages/Inquiry/Inquiry';
 import EventList from '../pages/Inquiry/EventList';
+import DetailEvent from '../pages/Inquiry/DetailEvent';
 import NoticeList from '../pages/Inquiry/NoticeList';
 import NoticePost from '../pages/Inquiry/NoticePost';
 import NoticeDetail from '../pages/Inquiry/NoticeDetail';
@@ -35,6 +36,7 @@ function App() {
       <Route path='/boardgame/:id' element={<DetailGame />} />
       <Route path='/inquiry' element={<Inquiry />} />
       <Route path='/event' element={<EventList />} />
+      <Route path='/event/:id' element={<DetailEvent />} />
       <Route path='/notice' element={<NoticeList />} />
       <Route path='/notice/post' element={<NoticePost />} />
       <Route path='/notice/:id' element={<NoticeDetail />} />
