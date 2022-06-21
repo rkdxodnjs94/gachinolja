@@ -52,22 +52,21 @@ function Header(){
             <div className='d-flex menu'>
               <div role='button' className='p-4 menu1' onClick={()=>{
                 islogin.userid || googleuser.email || facebookuser.email || naveruser.email
-                ? navigate('/reserve1') : alert('로그인 하셔야 합니다')}} 
-                onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>
+                ? navigate('/reserve1') : alert('로그인 하셔야 합니다')}}>
                 예약하기
               </div>
               <div role='button' className='p-4 menu1' onClick={()=>{
-                navigate('/party'); }} onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>
+                navigate('/party'); }}>
                 모집하기
               </div>
               <div role='button' className='p-4 menu1' onClick={()=>{
-                navigate('/boardgame');}} onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>
+                navigate('/boardgame');}}>
                 보드게임
               </div>
               <div role='button' className='p-4 menu1' onClick={()=>{
                 islogin.userid || googleuser.email || facebookuser.email || naveruser.email
-                ? navigate('/inquiry') : alert('로그인 하셔야 합니다')}} 
-              onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>문의하기
+                ? navigate('/notice') : alert('로그인 하셔야 합니다')}} 
+              onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>새소식
                 <div className="submenu">
                   <div role='button' className="subsubmenu px-2" onClick={(e)=>{
                     e.stopPropagation(); navigate('/notice');}}>
@@ -75,13 +74,13 @@ function Header(){
                   <div role='button' className="subsubmenu px-2" onClick={(e)=>{
                     e.stopPropagation(); navigate('/event');}}>
                     이벤트</div>
-                  <div role='button' className="subsubmenu px-2" onClick={(e)=>{
-                    e.stopPropagation();
-                    {islogin.userid || googleuser.email || facebookuser.email || naveruser.email
-                    ? navigate('/inquiry') : alert('로그인 하셔야 합니다')}}}>
-                    1:1문의</div>
                 </div>
               </div>
+              <div role='button' className="p-4 menu1" onClick={(e)=>{
+                e.stopPropagation();
+                {islogin.userid || googleuser.email || facebookuser.email || naveruser.email
+                ? navigate('/inquiry') : alert('로그인 하셔야 합니다')}}}>
+                문의하기</div>
             </div>
           { islogin.nickname || googleuser.email || facebookuser.email || naveruser.email
           ? <div className='col-2 border p-4 user' 

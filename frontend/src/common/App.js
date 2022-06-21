@@ -12,13 +12,13 @@ import RecruitParty from '../pages/Party/RecruitParty';
 import ReadParty from '../pages/Party/ReadParty';
 // page경로(보드게임페이지)
 import BoardGame from '../pages/BoardGame/BoardGame';
+import DetailGame from '../pages/BoardGame/DetailGame';
 // page경로(문의페이지)
 import Inquiry from '../pages/Inquiry/Inquiry';
 import EventList from '../pages/Inquiry/EventList';
 import NoticeList from '../pages/Inquiry/NoticeList';
 import NoticePost from '../pages/Inquiry/NoticePost';
 import NoticeDetail from '../pages/Inquiry/NoticeDetail';
-import DetailGame from '../pages/BoardGame/DetailGame';
 // page경로(회원가입)
 import SignUp from '../pages/SignUp';
 
@@ -30,7 +30,7 @@ function App() {
       <Route path='/reserve2/:id' element={<Reserve2 />} />
       <Route path='/party' element={<Party />} />
       <Route path='/party/:id' element={<ReadParty />} />
-      <Route path='/party/recruit' element={<RecruitParty />} />
+      <Route path='/party/recruit' element={<RecruitParty />} />  
       <Route path='/boardgame' element={<BoardGame />} />
       <Route path='/boardgame/:id' element={<DetailGame />} />
       <Route path='/inquiry' element={<Inquiry />} />

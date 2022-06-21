@@ -5,12 +5,17 @@ import { Container, Table, Card, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import { animations } from 'react-animation';
 
 function EventList(){
 
   const islogin = useSelector((state) => { return state.islogin });
   const navigate = useNavigate();
   const [data, setData] = useState([]);
+
+  useEffect(()=>{
+    document.getElementById('fade').style.animation = `${animations.fadeIn}`;
+  },[]);
 
   useEffect(() => {
     async function axiosdata(){
@@ -31,7 +36,7 @@ function EventList(){
     <>
       {console.log(data)}
       <Header />
-      <Container>
+      <Container id='fade'>
       <h1 className='p-5'>이벤트</h1>
         <div className='container'>
           <Table>

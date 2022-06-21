@@ -1,13 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from 'react-router-dom';
+import { useSelector } from "react-redux";
 import axios from 'axios';
 import moment from 'moment';
-import { setRender } from '../stores/RenderSlice';
+import { useParams } from 'react-router-dom';
 
 function RevModal(props) {
-  const dispatch = useDispatch();
+  const { id } = useParams();
   const [show, setShow] = useState(false);
   const revdata = useSelector((state) => { return state.revdata })
   const reserve = useSelector((state) => { return state.reserve })
@@ -15,7 +14,6 @@ function RevModal(props) {
   const googleuser = useSelector((state) => { return state.googleuser })
   const facebookuser = useSelector((state) => { return state.facebookuser })
   const savereserve = useSelector((state) => { return state.savereserve })
-  const { id } = useParams();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 

@@ -155,7 +155,7 @@ function Login(props){
             </Form.Group>
           </Form>
           <div className='container mb-3' style={{marginLeft : '49%'}}>
-            <Button className='px-5' variant="primary" type="submit" onClick={onLock}>
+            <Button className='px-5' variant="danger" type="submit" onClick={onLock}>
               로그인
             </Button>
           </div>

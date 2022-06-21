@@ -102,17 +102,17 @@ function ReadParty(){
               <Row>
                 <Col style={{marginLeft : '32vw'}}>
                   { 
-                  islogin.userid !== data?.data[0]?.publisherID || googleuser.email !== data?.data[0]?.publisherID
-                  || facebookuser.email !== data?.data[0]?.publisherID
-                  ? data?.data[0]?.apply !== data?.data[0]?.people
-                    ? <Button className='mb-5' variant="primary"
-                      onClick={applyDB}>신청하기</Button>
-                    : null
+                  (islogin.userid === data?.data[0]?.publisherID) || (googleuser.email === data?.data[0]?.publisherID)
+                  || (facebookuser.email === data?.data[0]?.publisherID)
+                  ? null
+                  : data?.data[0]?.apply < data?.data[0]?.people
+                  ? <Button className='mb-5' variant="danger"
+                    onClick={applyDB}>신청하기</Button>
                   : null
                   }
                 </Col>
                 <Col style={{marginRight : '25vw'}}>
-                  <Button className='mb-5 ms-3' variant="primary" 
+                  <Button className='mb-5 ms-3' variant="danger" 
                     onClick={()=>{navigate('/party')}}>목록</Button>
                 </Col>
               </Row>

@@ -5,6 +5,7 @@ import ArragePlace from '../components/Reserve/ArragePlace';
 import ModalReserve from '../components/Reserve/ModalReserve';
 import MapContainer from '../components/Reserve/MapContainer';
 import { Stack } from 'react-bootstrap';
+import { animations } from 'react-animation';
 
 function Reserve(){
   // 두 컴포넌트 값 공유
@@ -18,7 +19,7 @@ function Reserve(){
   },[render]);
 
   return (
-    <>
+    <div style={{animation : animations.fadeIn}}>
       <Header />
       <Stack direction='horizontal' gap={2} className='px-5 py-2'>
         <ArragePlace value={value} onChange={onChange} render={render}/>
@@ -28,7 +29,7 @@ function Reserve(){
         </Stack>
       </Stack>
       <Footer />
-    </>
+    </div>
   )
 }
 

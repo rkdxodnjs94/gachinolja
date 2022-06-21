@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { clear } from '../stores/InputSlice';
+import { animations } from 'react-animation';
 
 function Reserve1(){
 
@@ -25,7 +26,7 @@ function Reserve1(){
   },[]);
 
   return (
-    <>
+    <div style={{animation : animations.fadeIn}}>
       <Header />
       <div className="container p-4">
         <Search />
@@ -50,7 +51,7 @@ function Reserve1(){
       
       </div>
       <Footer />
-    </>
+    </div>
   )
 }
 

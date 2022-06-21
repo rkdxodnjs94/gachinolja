@@ -1,20 +1,29 @@
 import './SignUp.css';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Form, Col, Button } from 'react-bootstrap';
+import { Form, Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function SignUp(){
   const navigate = useNavigate();
   // 아이디, 비밀번호, 닉네임, 성별, 전화번호
+  const [data, setData] = useState([]);
   const [userId, setUserId] = useState('');
   const [userPw, setUserPw] = useState('');
   const [userPwCheck, setUserPwCheck] = useState('');
   const [nickname, setNickname] = useState('');
   const [gender, setGender] = useState('');
   const [phone, setPhone] = useState('');
+  // axios 데이터
+  useEffect(()=>{
+    async function axiosdata(){
+      const response = await axios.get('/api/user/list');
+      setData(response.data);
+    }
+    axiosdata();
+  },[]);
   // 오류메시지 상태저장
   const [idError, setIdError] = useState('');
   const [pwError, setPwError] = useState('');
@@ -23,9 +32,11 @@ function SignUp(){
   const [telError, setTelError] = useState('');
   // 유효성 검사
   const [idCheck, setIdCheck] = useState(false);
+  const [idClick, setIDClick] = useState(false);
   const [pwCheck, setPwCheck] = useState(false);
   const [pwConfirmCheck, setPwConfirmCheck] = useState(false);
   const [nickCheck, setNickCheck] = useState(false);
+  const [nickClick, setNickClick] = useState(false);
   const [telCheck, setTelCheck] = useState(false);
   // ID
   const onChangeId = useCallback((e) => {
@@ -38,11 +49,24 @@ function SignUp(){
     } else if ((e.target.value.length > 30) || (e.target.value.length < 10)) {
       setIdError('10자 이상 30자 이하로 입력해주세요.');
       setIdCheck(false);
+    } else if (idClick === false){
+      setIdError('중복확인을 클릭해주세요!');
+      setIdCheck(false);
+    } 
+  },[])
+  // ID 중복확인
+  function IDVaild(){
+    const copy = [...data];
+    const userlist = copy.map((a,i) => a.userid);
+    if (userlist.includes(userId)) {
+      setIdError('이미 아이디가 존재합니다.');
+      setIdCheck(false);
     } else {
-      setIdError('올바른 이메일 형식입니다!');
+      setIdError('사용 가능한 아이디입니다!');
+      setIDClick(true);
       setIdCheck(true);
     }
-  },[])
+  } 
   // PW
   const onChangePw = useCallback((e) => {
     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,15}$/;
@@ -68,17 +92,31 @@ function SignUp(){
       setPwConfirmCheck(false);
     }
   },[userPw])
-  // nickname
+  // 닉네임
   const onChangeNick = useCallback((e) => {
-    setNickname(e.target.value);
-    if (e.target.value.length > 12 || e.target.value.length < 3) {
-      setNickError('3글자 이상 12글자 이하로 입력해주세요.')
-      setNickCheck(false)
-    } else {
-      setNickError('올바른 닉네임 형식입니다 :)')
-      setNickCheck(true)
+    const nickConfirmCurrent = e.target.value;
+    setNickname(nickConfirmCurrent);
+    if ((e.target.value.length < 3) || (e.target.value.length > 12)) {
+      setNickError('3글자 이상 12글자 이하로 입력해주세요.');
+      setNickCheck(false);
+    } else if (nickClick === false){
+      setNickError('중복확인을 클릭해주세요!');
+      setIdCheck(false);
     }
   },[])
+  // 닉네임 중복확인
+  function NickVaild(){
+    const copy = [...data];
+    const userlist = copy.map((a,i) => a.nickname);
+    if (userlist.includes(nickname)) {
+      setNickError('이미 닉네임이 존재합니다.');
+      setNickCheck(false);
+    } else {
+      setNickError('사용 가능한 닉네임입니다!');
+      setNickClick(true);
+      setNickCheck(true);
+    }
+  } 
   // 성별
   const onChangeGen = (e) => {
     if (e.target.name === 'gender'){
@@ -131,14 +169,23 @@ function SignUp(){
   return (
     <>
       <Header />
-      <div style={{height: '100px'}} className='container-fluid border'>회원가입</div>
+      <div style={{height: '100px'}} className='container-fluid'>
+        <h1 className='py-5' style={{paddingLeft:'230px'}}>회원가입</h1>
+      </div>
       <Form className="container px-5 py-4" style={{minWidth:'1000px'}}>
         <Form.Group className="mb-3" controlId="userid">
           <Form.Label>아이디</Form.Label>
-          <Form.Control name='userid' type="email" placeholder="name@example.com" className="w-25"
-          onChange={onChangeId} required/>
-          {userId.length > 0 && <span className={`${idCheck ? 'success' : 'error'}`}>{idError}</span>}
+          <Row lg={4}>
+            <Col>
+              <Form.Control name='userid' type="email" placeholder="name@example.com" style={{width:'260px'}}
+              onChange={onChangeId} required/>
+            </Col>
+            <Col>
+              <Button variant="danger" onClick={IDVaild}>중복확인</Button>
+            </Col>
+          </Row>
         </Form.Group>
+        {userId.length > 0 && <span className={`${idCheck ? 'success' : 'error'}`}>{idError}</span>}
         <Form.Group className="mb-3" controlId="password">
           <Form.Label column sm="2">
             비밀번호
@@ -163,8 +210,15 @@ function SignUp(){
           <Form.Label column sm="2">
             닉네임
           </Form.Label>
-          <Form.Control name="nickname" type="text" placeholder="3~12자" className="w-25"
-          onChange={onChangeNick} required/>
+          <Row lg={4}>
+            <Col>
+              <Form.Control name="nickname" type="text" placeholder="3~12자" style={{width:'260px'}}
+              onChange={onChangeNick} required/>
+            </Col>
+            <Col>
+              <Button variant="danger" onClick={NickVaild}>중복확인</Button>
+            </Col>
+          </Row>
           {nickname.length > 0 && <span className={`${nickCheck ? 'success' : 'error'}`}>{nickError}</span>}
         </Form.Group>
         <Form.Group className="mb-1" controlId="gender">
@@ -186,7 +240,7 @@ function SignUp(){
         </Form.Group>
       </Form>
       <div style={{marginLeft:'20%', marginBottom: '3%'}}>
-        <Button type='post' variant="outline-primary" onClick={onRegister}>가입하기</Button>
+        <Button type='post' variant="outline-danger" onClick={onRegister}>회원가입</Button>
       </div>
       <Footer />
     </>

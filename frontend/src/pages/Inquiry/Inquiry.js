@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { Container, FloatingLabel, Form } from 'react-bootstrap';
 import InquiryModal from '../../elements/InquiryModal';
 import { useState } from "react";
+import { animations } from 'react-animation';
 
 function Inquiry(){
 
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  useEffect(()=>{
+    document.getElementById('fade').style.animation = `${animations.fadeIn}`;
+  },[]);
 
   return (
     <>
       <Header />
-      <Container>
+      <Container id='fade'>
         <h1 className='p-5'>1:1문의</h1>
         <div className='px-5'>
           <Form.Floating className="mb-3 w-75">

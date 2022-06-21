@@ -7,12 +7,17 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import { useSelector } from 'react-redux';
+import { animations } from 'react-animation';
 
 function NoticeList(){
 
   const islogin = useSelector((state) => { return state.islogin });
   const navigate = useNavigate();
   const [data, setData] = useState([]);
+
+  useEffect(()=>{
+    document.getElementById('fade').style.animation = `${animations.fadeIn}`;
+  },[]);
 
   useEffect(() => {
     async function axiosdata(){
@@ -31,7 +36,7 @@ function NoticeList(){
   return (
     <>
       <Header />
-      <Container>
+      <Container id='fade'>
       <h1 className='p-5'>공지사항</h1>
         <div className='px-5'>
           <Table responsive="sm">
@@ -59,7 +64,7 @@ function NoticeList(){
           </Table>
           {
             islogin.nickname === '관리자'
-          ? <div className='mb-4 mt-4 me-4 d-flex justify-content-end'>
+          ? <div className='mb-4 mt-4 me-4 d-flex justify-content-end btn-danger'>
             <Button onClick={()=>{navigate('/notice/post')}}>작성하기</Button>
           </div>
           : null

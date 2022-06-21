@@ -4,11 +4,13 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 function NoticeDetail(){
     const { id } = useParams();
     const navigate = useNavigate();
+    const islogin = useSelector((state) => { return state.islogin});
     const [data, setData] = useState([]);
     useEffect(()=>{
       async function axiosdata(){
@@ -65,10 +67,16 @@ function NoticeDetail(){
             <Container>
             <Row>
                 <Col style={{marginLeft : '32vw'}}>
-                <Button className='mb-5' variant="primary">작성하기</Button>
+                {
+                  islogin.nickname === '관리자'
+                ? <div className='mb-4 mt-4 me-4 d-flex justify-content-end btn-danger'>
+                  <Button onClick={()=>{navigate('/notice/post')}}>작성하기</Button>
+                </div>
+                : null
+                }
                 </Col>
                 <Col style={{marginRight : '25vw'}}>
-                <Button className='mb-5 ms-3' variant="primary" 
+                <Button className='mb-5 ms-3' variant="danger" 
                     onClick={()=>{navigate('/notice')}}>목록</Button>
                 </Col>
             </Row>
