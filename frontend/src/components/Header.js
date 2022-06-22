@@ -83,17 +83,18 @@ function Header(){
                 문의하기</div>
             </div>
           { islogin.nickname || googleuser.email || facebookuser.email || naveruser.email
-          ? <div className='col-2 border p-4 user' 
-          onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>
-              {islogin.nickname || googleuser.name || facebookuser.name || naveruser.name}님 환영합니다!!
-              <div role='button' className="px-2" onClick={(e)=>{
-                e.stopPropagation(); logout();}}>
-                로그아웃</div>
-          </div>
-            : <div role='button' className='p-4 border user' onClick={() => {
-            dispatch(setLogin(true));
-          }}>로그인
-            </div>}
+          ? <div className="col-2 user">
+              <div className='btncss'>
+                <span>{islogin.nickname || googleuser.name || facebookuser.name || naveruser.name}님 환영합니다!!</span>
+                <div role='button' className="px-2 btncss" onClick={(e)=>{
+                  e.stopPropagation(); logout();}}>
+                <span>로그아웃</span></div>
+              </div>
+            </div>
+            : <div className="user">
+                <div role='button' className='btncss' onClick={() => {
+                dispatch(setLogin(true));}}><span>로그인</span></div>
+              </div>}
           </div>
         </div>
       </div>
