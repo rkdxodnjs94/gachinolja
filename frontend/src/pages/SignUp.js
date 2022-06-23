@@ -144,6 +144,10 @@ function SignUp(){
       alert('비밀번호가 일치하지 않습니다.');
       return false;
     }
+    if (idClick === false || nickClick === false){
+      alert('중복확인 해주세요!!');
+      return false;
+    }
     try { 
       const response = await axios.post('/api/user/register',{
         userid : userId,
@@ -173,7 +177,7 @@ function SignUp(){
         <h1 className='py-5' style={{paddingLeft:'230px'}}>회원가입</h1>
       </div>
       <Form className="container px-5 py-4" style={{minWidth:'1000px'}}>
-        <Form.Group className="mb-3" controlId="userid">
+        <Form.Group controlId="userid">
           <Form.Label>아이디</Form.Label>
           <Row lg={4}>
             <Col>
@@ -183,7 +187,7 @@ function SignUp(){
             <Col>
               <Button variant="danger" onClick={IDVaild}>중복확인</Button>
             </Col>
-          </Row>
+          </Row>  
         </Form.Group>
         {userId.length > 0 && <span className={`${idCheck ? 'success' : 'error'}`}>{idError}</span>}
         <Form.Group className="mb-3" controlId="password">
