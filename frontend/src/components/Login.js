@@ -36,6 +36,10 @@ function Login(props){
       dispatch(loginPW((e.target.value)));
     }
   }
+  function onlyAlphabet(e){
+    const alphabet = e.target.value.replace(/[^\\!-z]/gi,"");
+    return alphabet;
+  }
   async function onLock(e){
     //입력 값 정합성 체크 후 login API 요청
     if (islogin.userid === "" || islogin.userpw === "") {
@@ -148,7 +152,7 @@ function Login(props){
             <Form.Group className="mb-3 px-5" controlId="formBasicPassword">
               <Form.Label>비밀번호</Form.Label>
               <Form.Control className='w-75' type="password" name='userpw' placeholder="Password" 
-              onChange={onChangePw} style={{textTransform:'lowercase'}}/>
+              onChange={onChangePw} onkeydown={onlyAlphabet}/>
             </Form.Group>
             <Form.Group className="px-5" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="날 기억해줘!" />

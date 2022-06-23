@@ -51,6 +51,7 @@ function ReadParty(){
         {params : { no : id }});
         console.log(response);
         alert('신청 완료되었습니다! XD');
+        navigate('/party');
       } catch (error) {
         alert('신청 실패 ㅠㅠ');
         console.log(error)
