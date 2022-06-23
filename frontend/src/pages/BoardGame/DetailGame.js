@@ -26,7 +26,7 @@ function DetailGame(){
       <Header />
       <Suspense fallback={<h1>로딩중입니당</h1>}>
         <div className='container px-5'>
-          <img src={data?.images_detail} style={{width : '100%'}}/>
+          <img src={data?.images_detail} style={{width : '80%', marginLeft: '10%'}}/>
         </div>
       </Suspense>
       <Footer />
