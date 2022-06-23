@@ -177,7 +177,7 @@ function SignUp(){
           <Form.Label>아이디</Form.Label>
           <Row lg={4}>
             <Col>
-              <Form.Control name='userid' type="email" placeholder="name@example.com" style={{width:'260px'}}
+              <Form.Control name='userid' type="email" placeholder="name@example.com" style={{width:'300px'}}
               onChange={onChangeId} required/>
             </Col>
             <Col>
@@ -212,7 +212,7 @@ function SignUp(){
           </Form.Label>
           <Row lg={4}>
             <Col>
-              <Form.Control name="nickname" type="text" placeholder="3~12자" style={{width:'260px'}}
+              <Form.Control name="nickname" type="text" placeholder="3~12자" style={{width:'300px'}}
               onChange={onChangeNick} required/>
             </Col>
             <Col>
