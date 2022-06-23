@@ -63,9 +63,7 @@ function Header(){
                 navigate('/boardgame');}}>
                 보드게임
               </div>
-              <div role='button' className='p-4 menu1' onClick={()=>{
-                islogin.userid || googleuser.email || facebookuser.email || naveruser.email
-                ? navigate('/notice') : alert('로그인 하셔야 합니다')}} 
+              <div role='button' className='p-4 menu1' onClick={()=>{ navigate('/notice') }} 
               onMouseOver={(e)=>{ e.stopPropagation(); Slide(); }}>새소식
                 <div className="submenu">
                   <div role='button' className="subsubmenu px-2" onClick={(e)=>{

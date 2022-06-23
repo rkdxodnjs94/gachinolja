@@ -13,11 +13,11 @@ function InquiryModal(props) {
   async function NoticeDB(e){
     e.stopPropagation();
     try {
-      const response = await axios.post('/api/notice/',{
+      const response = await axios.post('/api/inquiry/',{
         title : props.title,
         content : props.content,
         publisher : islogin.nickname,
-        publisherID : islogin.userid,
+        publisherID : islogin.userid
       });
       alert('완료되었습니다! :)');
       handleClose();
