@@ -9,7 +9,7 @@ function DetailEvent(){
     <>
       <Header />
       <div className="container px-5">
-        <img src={`/images/event${id}_detail.jpeg`} style={{width : '100%'}}/>
+        <img src={`/images/event${id}_detail.jpeg`} style={{width:'80%',marginLeft:'10%'}}/>
       </div>
       <Footer />
     </>

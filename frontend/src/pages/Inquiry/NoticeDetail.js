@@ -69,14 +69,14 @@ function NoticeDetail(){
                 <Col style={{marginLeft : '32vw'}}>
                 {
                   islogin.nickname === '관리자'
-                ? <div className='mb-4 mt-4 me-4 d-flex justify-content-end btn-danger'>
-                  <Button onClick={()=>{navigate('/notice/post')}}>작성하기</Button>
+                ? <div className='d-flex justify-content-end'>
+                  <Button variant="danger" onClick={()=>{navigate('/notice/post')}}>작성하기</Button>
                 </div>
                 : null
                 }
                 </Col>
                 <Col style={{marginRight : '25vw'}}>
-                <Button className='mb-5 ms-3' variant="danger" 
+                <Button variant="danger" 
                     onClick={()=>{navigate('/notice')}}>목록</Button>
                 </Col>
             </Row>

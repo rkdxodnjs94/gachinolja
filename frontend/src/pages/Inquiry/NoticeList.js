@@ -64,8 +64,8 @@ function NoticeList(){
           </Table>
           {
             islogin.nickname === '관리자'
-          ? <div className='mb-4 mt-4 me-4 d-flex justify-content-end btn-danger'>
-            <Button onClick={()=>{navigate('/notice/post')}}>작성하기</Button>
+          ? <div className='mb-4 mt-4 me-4 d-flex justify-content-end'>
+            <Button variant="danger" onClick={()=>{navigate('/notice/post')}}>작성하기</Button>
           </div>
           : null
           }
