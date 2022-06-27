@@ -18,7 +18,7 @@ const MapContainer = () => {
 			center: new kakao.maps.LatLng(mapData[id-1].wido, mapData[id-1].geongdo),
 			level: 2
         }
-        const map = new kakao.maps?.Map(container, options);
+        const map = new kakao.maps.Map(container, options);
         const marker = new kakao.maps.Marker({ 
             // 지도 중심좌표에 마커를 생성합니다 
             position: map.getCenter() 
