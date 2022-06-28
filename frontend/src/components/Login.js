@@ -79,12 +79,12 @@ function Login(props){
     setCancel(true);
   }
   useEffect(()=>{
-    google.accounts.id.initialize({
+    google?.accounts?.id.initialize({
       client_id : googleAPIKey,
       callback : handleCallbackResponse,
     });
 
-    google.accounts.id.renderButton(
+    google?.accounts?.id.renderButton(
       document.getElementById("signInDiv"),
       { type: "icon", theme : "outline", shape : "circle", size : "large"}
     );
@@ -96,7 +96,7 @@ function Login(props){
   const initializeNaverLogin = () => {
     const naverLogin = new naver.LoginWithNaverId({
       clientId : naverAPIKey,
-      callbackUrl : "http://www.gachinolja.ml/",
+      callbackUrl : "http://www.gatinolja.tk/",
       isPopup : false, // popup 형식으로 띄울것인지 설정
       loginButton: { color: 'green', type : 1, height: '60' }, //버튼의 스타일, 타입, 크기를 지
     })
@@ -152,7 +152,7 @@ function Login(props){
             <Form.Group className="mb-3 px-5" controlId="formBasicPassword">
               <Form.Label>비밀번호</Form.Label>
               <Form.Control className='w-75' type="password" name='userpw' placeholder="Password" 
-              onChange={onChangePw} onkeydown={onlyAlphabet}/>
+              onChange={onChangePw} onKeyDown={onlyAlphabet}/>
             </Form.Group>
             <Form.Group className="px-5" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="날 기억해줘!" />
