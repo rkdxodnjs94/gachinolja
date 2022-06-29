@@ -5,6 +5,7 @@ import islogin from '../stores/IsLoginSlice';
 import googleuser from '../stores/GoogleSlice';
 import facebookuser from '../stores/FacebookSlice';
 import naveruser from '../stores/NaverSlice';
+import kakaouser from '../stores/KaKaoSlice';
 // 예약 state용
 import reserve from '../stores/RevSlice';
 import savereserve from '../stores/SaveRevSlice';
@@ -24,6 +25,7 @@ export default configureStore({
     googleuser : googleuser.reducer,
     facebookuser : facebookuser.reducer,
     naveruser : naveruser.reducer,
+    kakaouser : kakaouser.reducer,
     reserve : reserve.reducer,
     input : input.reducer,
     savereserve : savereserve.reducer,

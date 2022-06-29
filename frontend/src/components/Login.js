@@ -1,6 +1,6 @@
 import './Login.css';
 import React, { useEffect, useState } from 'react';
-import { Form, Button, Alert, CloseButton } from 'react-bootstrap'; 
+import { Form, Button, CloseButton } from 'react-bootstrap'; 
 import { useDispatch, useSelector } from 'react-redux';
 import { setLogin } from '../stores/LoginSlice';
 import { loginID, loginPW, loginNICK } from '../stores/IsLoginSlice';
@@ -12,7 +12,7 @@ import jwt_decode from 'jwt-decode';
 // facebook oauth
 import FacebookLogin from '@greatsumini/react-facebook-login';
 import { setFacebookUser } from '../stores/FacebookSlice';
-import { setNaverUser } from '../stores/NaverSlice';
+// import { setNaverUser } from '../stores/NaverSlice';
 
 function Login(props){
   
@@ -22,9 +22,9 @@ function Login(props){
   const facebookAPIKey = process.env.REACT_APP_FACEBOOK_API_KEY;
   const naverAPIKey = process.env.REACT_APP_NAVER_API_KEY;
   const [cancel, setCancel] = useState(false);
-  const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const islogin = useSelector((state) => { return state.islogin});
   const onChangeId = (e) => {
     if ( e.target.name === 'userid'){
@@ -91,42 +91,58 @@ function Login(props){
 
     google.accounts.id.prompt();
   },[]);
- 
-  // 네이버 oauth
-  const initializeNaverLogin = () => {
-    const naverLogin = new naver.LoginWithNaverId({
-      clientId : naverAPIKey,
-      callbackUrl : "http://www.gatinolja.tk/",
-      isPopup : false, // popup 형식으로 띄울것인지 설정
-      loginButton: { color: 'green', type : 1, height: '60' }, //버튼의 스타일, 타입, 크기를 지
-    })
-    naverLogin.init();
-    // token 발급
-    if (!location.hash) return;
-    const token = location.hash.split('=')[1].split('&')[0];
-    console.log(token);
-    naverLogin.getLoginStatus((status) => {
-      if (status) {
-        console.log(naverLogin.user);
-        dispatch(setNaverUser(naverLogin.user));
-      }
-      });
-  };
-  // 네이버 버튼 커스터마이징
-  const handleNaverClick = () => {
-    if (
-      document &&
-      document?.querySelector('#naverIdLogin')?.firstChild &&
-      window !== undefined
-    ) {
-      const loginBtn = document.getElementById('naverIdLogin')?.firstChild;
-      loginBtn.click();
-    }
-  };
-  useEffect(()=>{
-    initializeNaverLogin();
-  },[]);
 
+  // 네이버 oauth
+  // useEffect(()=>{
+  //   let naverLogin;
+  //   const initializeNaverLogin = () => {
+  //     naverLogin = new naver.LoginWithNaverId({
+  //       clientId : naverAPIKey,
+  //       callbackUrl : "http://localhost:3001",
+  //       callbackHandle : true,
+  //       isPopup : false, // popup 형식으로 띄울것인지 설정
+  //       loginButton: { color: 'green', type : 1, height: '60' }, // 버튼의 스타일, 타입, 크기를 지정
+  //     });
+  //     naverLogin.init();
+  //   };
+  //   const UserProfile = () => {
+  //     window.location.href.includes('access_token') && GetUser();
+  //     function GetUser() {
+  //       const location = window.location.href.split('=')[1];
+  //       const token = location.split('&')[0];
+  //       console.log("token: ", token);
+  //       fetch(`http://localhost:3001` , {
+  //         method: "POST",
+  //         headers : {
+  //           "Content-type" : "application/json",
+  //           "Authorization": token
+  //         },
+  //       })
+  //       .then(res => res.json())
+  //       .then(res => {
+  //         localStorage.setItem("access_token", res.token);
+  //         console.log(res);
+  //       })
+  //       .catch(err => console.log("err : ", err));
+  //     }
+  //   };
+  //   initializeNaverLogin();
+  //   UserProfile();
+  // },[]);
+
+  // 네이버 버튼 커스터마이징
+  // const handleNaverClick = () => {
+  //   if (
+  //     document &&
+  //     document?.querySelector('#naverIdLogin')?.firstChild &&
+  //     window !== undefined
+  //   ) {
+  //     const loginBtn = document.getElementById('naverIdLogin')?.firstChild;
+  //     loginBtn.click();
+  //   }
+  // };
+  // kakao 로그인
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=193e88e51b15b01cb8641cae6d2e2018&redirect_uri=http://localhost:3001/oauth/callback/kakao&response_type=code`;
 
   return (
     <>
@@ -168,14 +184,14 @@ function Login(props){
           </div>
           <div className='d-flex justify-content-evenly mb-5'>
             {/* 네이버 Oauth */}
-            <div id="naverIdLogin" style={{position: 'absolute', top:'-10000px'}} />
+            {/* <div id="naverIdLogin" style={{position: 'absolute', top:'-10000px'}} />
             <div onClick={handleNaverClick} style={{cursor : 'pointer'}}>
               <img src='/images/login/naverbutton.png' height='40' />
-            </div>
+            </div> */}
             {/* 카카오톡 Oauth */}
-            <div>
+            <a href={KAKAO_AUTH_URL}>
               <img src='/images/login/kakaobutton.png' height='40' />
-            </div>
+            </a>
             {/* 페이스북 Oauth */}
             <FacebookLogin
               appId={facebookAPIKey}

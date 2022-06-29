@@ -19,6 +19,7 @@ function Header(){
   const googleuser = useSelector((state) => { return state.googleuser });
   const facebookuser = useSelector((state) => { return state.facebookuser });
   const naveruser = useSelector((state) => { return state.naveruser });
+  const kakaouser = useSelector((state) => { return state.kakaouser });
   const fade = useSelector(( state ) => { return state.fade });
   useEffect(()=>{
     setTimeout(()=>{ dispatch(setFade('end')) }, 100)
@@ -80,10 +81,10 @@ function Header(){
                 ? navigate('/inquiry') : alert('로그인 하셔야 합니다')}}}>
                 문의하기</div>
             </div>
-          { islogin.nickname || googleuser.email || facebookuser.email || naveruser.email
+          { islogin.nickname || googleuser.email || facebookuser.email || naveruser.email || kakaouser.nickname
           ? <div className="col-2 user">
               <div className='btncss'>
-                <span>{islogin.nickname || googleuser.name || facebookuser.name || naveruser.name}님 환영합니다!!</span>
+                <span>{islogin.nickname || googleuser.name || facebookuser.name || naveruser.name || kakaouser.nickname}님 환영합니다!!</span>
                 <div role='button' className="px-2 btncss" onClick={(e)=>{
                   e.stopPropagation(); logout();}}>
                 <span>로그아웃</span></div>
