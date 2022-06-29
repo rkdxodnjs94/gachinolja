@@ -17,15 +17,17 @@ import { setFacebookUser } from '../stores/FacebookSlice';
 function Login(props){
   
   const google = window.google;
-  const { naver } = window;
+  // const { naver } = window;
   const googleAPIKey = process.env.REACT_APP_GOOGLE_API_KEY;
   const facebookAPIKey = process.env.REACT_APP_FACEBOOK_API_KEY;
-  const naverAPIKey = process.env.REACT_APP_NAVER_API_KEY;
+  const kakakoAPIKey = process.env.REACT_APP_KAKAO_API_KEY;
+  // const naverAPIKey = process.env.REACT_APP_NAVER_API_KEY;
   const [cancel, setCancel] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const islogin = useSelector((state) => { return state.islogin});
+  const islogin = useSelector((state) => { return state.islogin });
+  const kakaoUrl = process.env.REACT_APP_KAKAO_REDIRECT_URL;
   const onChangeId = (e) => {
     if ( e.target.name === 'userid'){
       dispatch(loginID((e.target.value)));
@@ -142,7 +144,7 @@ function Login(props){
   //   }
   // };
   // kakao 로그인
-  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=193e88e51b15b01cb8641cae6d2e2018&redirect_uri=http://localhost:3001/oauth/callback/kakao&response_type=code`;
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${kakakoAPIKey}&redirect_uri=${kakaoUrl}&response_type=code`;
 
   return (
     <>

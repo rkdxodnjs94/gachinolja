@@ -11,7 +11,7 @@ function KakaoRedirectHandler(){
       let params = new URL(document.location.toString()).searchParams;
       let code = params.get("code"); // 인가코드 받는 부분
       let grant_type = "authorization_code";
-      let client_id = "193e88e51b15b01cb8641cae6d2e2018";
+      let client_id = process.env.REACT_APP_KAKAO_API_KEY;
     
       async function axiosdata(){
         axios.post(`https://kauth.kakao.com/oauth/token?grant_type=${grant_type}&client_id=${client_id}&redirect_uri=http://localhost:3001/oauth/callback/kakao&code=${code}`,
@@ -21,7 +21,7 @@ function KakaoRedirectHandler(){
           }
         }).then((res) => {
           console.log(res);
-          window.Kakao.init('193e88e51b15b01cb8641cae6d2e2018');
+          window.Kakao.init(client_id);
           window.Kakao.Auth.setAccessToken(res.data.access_token);
           let data = window.Kakao.API.request({
             url: "/v2/user/me",
