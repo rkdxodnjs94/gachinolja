@@ -13,15 +13,24 @@ const MapContainer = () => {
     const [data, setData] = useState(Data);
 
     useEffect(() => {
-        const container = document.getElementById('myMap');
-		const options = {
-			center: new kakao.maps.LatLng(mapData[id-1].wido, mapData[id-1].geongdo),
-			level: 2
-        }
-        const map = new kakao.maps.Map(container, options);
+
+        const mapkey = process.env.REACT_APP_KAKAO_MAP_API_KEY;
+        const mapScript = document.createElement("script");
+        mapScript.async = true;
+        mapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=27f2c1998abde12e546e1ac25ab07778&autoload=false`;
+        document.head.appendChild(mapScript);
+        let map;
+        const onLoadKakaoMap = () => {
+            kakao.maps.load(() => {
+            const container = document.getElementById('myMap');
+            const options = {
+                center: new kakao.maps.LatLng(mapData[id-1].wido, mapData[id-1].geongdo),
+                level: 2
+            }
+            map = new kakao.maps.Map(container, options);
         const marker = new kakao.maps.Marker({ 
             // 지도 중심좌표에 마커를 생성합니다 
-            position: map.getCenter() 
+            position: map?.getCenter() 
         }); 
         // 지도에 마커를 표시합니다
         marker.setMap(map);
@@ -38,7 +47,9 @@ const MapContainer = () => {
         
         // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
         infowindow.open(map, marker); 
-        
+            });
+        }
+        mapScript.addEventListener("load", onLoadKakaoMap);
     },[]);
 
     return (

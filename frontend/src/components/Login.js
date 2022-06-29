@@ -15,12 +15,12 @@ import { setFacebookUser } from '../stores/FacebookSlice';
 // import { setNaverUser } from '../stores/NaverSlice';
 
 function Login(props){
-  
+
   const google = window.google;
   // const { naver } = window;
   const googleAPIKey = process.env.REACT_APP_GOOGLE_API_KEY;
   const facebookAPIKey = process.env.REACT_APP_FACEBOOK_API_KEY;
-  const kakakoAPIKey = process.env.REACT_APP_KAKAO_API_KEY;
+  const kakaoAPIKey = process.env.REACT_APP_KAKAO_API_KEY;
   // const naverAPIKey = process.env.REACT_APP_NAVER_API_KEY;
   const [cancel, setCancel] = useState(false);
   const dispatch = useDispatch();
@@ -79,6 +79,7 @@ function Login(props){
     document.getElementById("signInDiv").hidden = true;
     navigate('/');
     setCancel(true);
+    dispatch(setLogin(false));
   }
   useEffect(()=>{
     google?.accounts?.id.initialize({
@@ -144,8 +145,8 @@ function Login(props){
   //   }
   // };
   // kakao 로그인
-  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${kakakoAPIKey}&redirect_uri=${kakaoUrl}&response_type=code`;
-
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoAPIKey}&redirect_uri=${kakaoUrl}&response_type=code`;
+  console.log(KAKAO_AUTH_URL);
   return (
     <>
       {

@@ -12,9 +12,10 @@ function KakaoRedirectHandler(){
       let code = params.get("code"); // 인가코드 받는 부분
       let grant_type = "authorization_code";
       let client_id = process.env.REACT_APP_KAKAO_API_KEY;
+      let kakaoUrl = process.env.REACT_APP_KAKAO_REDIRECT_URL;  
     
       async function axiosdata(){
-        axios.post(`https://kauth.kakao.com/oauth/token?grant_type=${grant_type}&client_id=${client_id}&redirect_uri=http://localhost:3001/oauth/callback/kakao&code=${code}`,
+        axios.post(`https://kauth.kakao.com/oauth/token?grant_type=${grant_type}&client_id=${client_id}&redirect_uri=${kakaoUrl}&code=${code}`,
         {
           headers: {
             'Content-type': 'application/x-www-form-urlencoded;charset=utf-8'
