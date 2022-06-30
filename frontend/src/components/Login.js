@@ -146,7 +146,7 @@ function Login(props){
   // };
   // kakao 로그인
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoAPIKey}&redirect_uri=${kakaoUrl}&response_type=code`;
-  console.log(KAKAO_AUTH_URL);
+  
   return (
     <>
       {
