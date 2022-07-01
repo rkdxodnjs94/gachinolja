@@ -34,7 +34,6 @@ function EventList(){
 
   return (
     <>
-      {console.log(data)}
       <Header />
       <Container id='fade'>
       <h1 className='p-5'>이벤트</h1>

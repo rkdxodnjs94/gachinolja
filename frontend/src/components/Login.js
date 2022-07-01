@@ -72,9 +72,7 @@ function Login(props){
   };
   // 구글 oauth
   function handleCallbackResponse(response) {
-    console.log("Encoded JWT ID token : "+response.credential);
     const userObject = jwt_decode(response.credential);
-    console.log(userObject);
     dispatch(setGoogleUser(userObject));
     document.getElementById("signInDiv").hidden = true;
     navigate('/');
