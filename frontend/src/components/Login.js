@@ -13,6 +13,8 @@ import jwt_decode from 'jwt-decode';
 import FacebookLogin from '@greatsumini/react-facebook-login';
 import { setFacebookUser } from '../stores/FacebookSlice';
 // import { setNaverUser } from '../stores/NaverSlice';
+import KakaoLogin from 'react-kakao-login';
+import { setKakaoUser } from '../stores/KaKaoSlice';
 
 function Login(props){
 
@@ -93,57 +95,14 @@ function Login(props){
     google.accounts.id.prompt();
   },[]);
 
-  // 네이버 oauth
-  // useEffect(()=>{
-  //   let naverLogin;
-  //   const initializeNaverLogin = () => {
-  //     naverLogin = new naver.LoginWithNaverId({
-  //       clientId : naverAPIKey,
-  //       callbackUrl : "http://localhost:3001",
-  //       callbackHandle : true,
-  //       isPopup : false, // popup 형식으로 띄울것인지 설정
-  //       loginButton: { color: 'green', type : 1, height: '60' }, // 버튼의 스타일, 타입, 크기를 지정
-  //     });
-  //     naverLogin.init();
-  //   };
-  //   const UserProfile = () => {
-  //     window.location.href.includes('access_token') && GetUser();
-  //     function GetUser() {
-  //       const location = window.location.href.split('=')[1];
-  //       const token = location.split('&')[0];
-  //       console.log("token: ", token);
-  //       fetch(`http://localhost:3001` , {
-  //         method: "POST",
-  //         headers : {
-  //           "Content-type" : "application/json",
-  //           "Authorization": token
-  //         },
-  //       })
-  //       .then(res => res.json())
-  //       .then(res => {
-  //         localStorage.setItem("access_token", res.token);
-  //         console.log(res);
-  //       })
-  //       .catch(err => console.log("err : ", err));
-  //     }
-  //   };
-  //   initializeNaverLogin();
-  //   UserProfile();
-  // },[]);
-
-  // 네이버 버튼 커스터마이징
-  // const handleNaverClick = () => {
-  //   if (
-  //     document &&
-  //     document?.querySelector('#naverIdLogin')?.firstChild &&
-  //     window !== undefined
-  //   ) {
-  //     const loginBtn = document.getElementById('naverIdLogin')?.firstChild;
-  //     loginBtn.click();
-  //   }
-  // };
   // kakao 로그인
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoAPIKey}&redirect_uri=${kakaoUrl}&response_type=code`;
+  const successKakaoProfile = (res) => {
+    console.log(res);
+    dispatch(setKakaoUser(res.profile.properties));
+    setCancel(true);
+    dispatch(setLogin(false));
+  }
   
   return (
     <>
@@ -184,15 +143,16 @@ function Login(props){
             또는
           </div>
           <div className='d-flex justify-content-evenly mb-5'>
-            {/* 네이버 Oauth */}
-            {/* <div id="naverIdLogin" style={{position: 'absolute', top:'-10000px'}} />
-            <div onClick={handleNaverClick} style={{cursor : 'pointer'}}>
-              <img src='/images/login/naverbutton.png' height='40' />
-            </div> */}
-            {/* 카카오톡 Oauth */}
-            <a href={KAKAO_AUTH_URL}>
-              <img src='/images/login/kakaobutton.png' height='40' />
-            </a>
+            <KakaoLogin
+            // rest api 키가 아닌 js 키를 사용해야 합니다.
+            jsKey={process.env.REACT_APP_KAKAO_API_KEY}
+            onSuccess={(res) => successKakaoProfile(res)}
+            onFailure={(res) => console.log(res)}
+            // getPofile 속성을 주지 않으면 유저 정보를 받을 수 없습니다.
+            getProfile={true}
+            style={{display:'block', border:'none', background:'none'}}
+            ><img src='/images/login/kakaobutton.png' height='40' />
+            </KakaoLogin>
             {/* 페이스북 Oauth */}
             <FacebookLogin
               appId={facebookAPIKey}
@@ -202,7 +162,6 @@ function Login(props){
               }}
               onProfileSuccess={(response) => {
                 console.log('Get Profile Success!');
-                console.log('response: ', response);
                 dispatch(setFacebookUser(response));
                 navigate('/');
                 setCancel(true);

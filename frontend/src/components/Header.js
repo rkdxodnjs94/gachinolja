@@ -10,6 +10,7 @@ import jQuery from 'jquery';
 import { useEffect } from "react";
 import { setFacebookUser } from "../stores/FacebookSlice";
 import { setNaverUser } from "../stores/NaverSlice";
+import { setKakaoUser } from "../stores/KaKaoSlice";
 
 function Header(){
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ function Header(){
       dispatch(setGoogleUser(''));
       dispatch(setFacebookUser(''));
       dispatch(setNaverUser(''));
+      dispatch(setKakaoUser(''));
       window.location.replace('/');
     } catch (error) {
       alert('로그아웃 실패');

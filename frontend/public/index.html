@@ -26,8 +26,11 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>React App</title>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script>Kakao.init(process.env.REACT_APP_KAKAO_API_KEY)</script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script>
+      Kakao.init('dd72d4acdb3d9d743be885fc288ba621');
+      console.log(Kakao.isInitialized());
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
