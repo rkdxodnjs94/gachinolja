@@ -54,7 +54,7 @@ function Header(){
           <div className="d-flex stroke align-items-center">
             <div className='d-flex menu'>
               <div role='button' className='p-4 menu1' onClick={()=>{
-                islogin.userid || googleuser.email || facebookuser.email || naveruser.email
+                islogin.userid || googleuser.email || facebookuser.email || kakaouser.nickname
                 ? navigate('/reserve1') : alert('로그인 하셔야 합니다')}}>
                 예약하기
               </div>
@@ -79,14 +79,14 @@ function Header(){
               </div>
               <div role='button' className="p-4 menu1" onClick={(e)=>{
                 e.stopPropagation();
-                {islogin.userid || googleuser.email || facebookuser.email || naveruser.email
+                {islogin.userid || googleuser.email || facebookuser.email || kakaouser.nickname
                 ? navigate('/inquiry') : alert('로그인 하셔야 합니다')}}}>
                 문의하기</div>
             </div>
-          { islogin.nickname || googleuser.email || facebookuser.email || naveruser.email || kakaouser.nickname
+          { islogin.nickname || googleuser.email || facebookuser.email || kakaouser.nickname
           ? <div className="col-2 user">
               <div className='btncss'>
-                <span>{islogin.nickname || googleuser.name || facebookuser.name || naveruser.name || kakaouser.nickname}님 환영합니다!!</span>
+                <span>{islogin.nickname || googleuser.name || facebookuser.name || kakaouser.nickname}님 환영합니다!!</span>
                 <div role='button' className="px-2 btncss" onClick={(e)=>{
                   e.stopPropagation(); logout();}}>
                 <span>로그아웃</span></div>

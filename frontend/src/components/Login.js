@@ -98,7 +98,6 @@ function Login(props){
   // kakao 로그인
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoAPIKey}&redirect_uri=${kakaoUrl}&response_type=code`;
   const successKakaoProfile = (res) => {
-    console.log(res);
     dispatch(setKakaoUser(res.profile.properties));
     setCancel(true);
     dispatch(setLogin(false));

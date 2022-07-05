@@ -158,7 +158,6 @@ function SignUp(){
       });
       alert('가입이 완료되었습니다 X)');
       navigate('/');
-      console.log(response);
     } catch (error) {
       alert('가입 실패');
       if (error.response.status === 400){

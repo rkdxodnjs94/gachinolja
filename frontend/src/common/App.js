@@ -22,7 +22,6 @@ import NoticePost from '../pages/Inquiry/NoticePost';
 import NoticeDetail from '../pages/Inquiry/NoticeDetail';
 // page경로(회원가입)
 import SignUp from '../pages/SignUp';
-import KakaoRedirectHandler from '../pages/KakaoRedirectHandler';
 
 function App() {
   return (
@@ -42,7 +41,6 @@ function App() {
       <Route path='/notice/post' element={<NoticePost />} />
       <Route path='/notice/:id' element={<NoticeDetail />} />
       <Route path='/signup' element={<SignUp />} />
-      <Route path='/oauth/callback/kakao' element={<KakaoRedirectHandler />} />
     </Routes>
   );
 }

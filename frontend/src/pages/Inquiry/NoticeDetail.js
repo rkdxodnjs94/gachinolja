@@ -32,7 +32,6 @@ function NoticeDetail(){
             views : (Number(data.data.views)+1)
           }
         });
-        console.log(response);
       } catch (error) {
         console.log(error);
       } 
